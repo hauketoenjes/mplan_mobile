@@ -1,0 +1,28 @@
+{
+  "perosnalPlanPage_title": "Mein Plan",
+  "personalPlanPage_greeting": "Hallo,",
+  "personalPlanPage_hint": "Dein Name",
+  "personalPlanPage_intro": "Du bist im aktuellen Plan {count, plural, =0{kein} =1{noch ein} other{noch {count}}} Mal aufgestellt.",
+  "personalPlanPage_emptyName": "Um deinen persönlichen Plan zu sehen, gib deinen Namen genauso ein, wie er auf der Website steht. Tippe dazu einfach auf den Text oben.",
+  "@personalPlanPage_intro": {
+    "placeholders": {
+      "count": {
+        "type": "num",
+        "format": "compact"
+      }
+    }
+  },
+  "personalPlanPage_nextTime": "Das nächste Mal {timeago}.",
+  "@personalPlanPage_nextTime": {
+    "placeholders": {
+      "timeago": {
+        "type": "String"
+      }
+    }
+  },
+  "planPage_title": "Dienstplan",
+  "settingsPage_title": "Einstellungen",
+  "settingsPage_about": "Über diese App",
+  "settingsPage_aboutDescription": "Informationen über diese App. Lizenzen, Versionsnummer, usw.",
+  "settingsPage_aboutDialog": "App zum Anzeigen des Messdienerplans der Messdiener St. Vitus Visbek."
+}
