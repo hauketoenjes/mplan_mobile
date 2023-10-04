@@ -5,10 +5,10 @@ import 'package:mplan_mobile/misc/list_extensions.dart';
 
 class PlanItemCard extends StatelessWidget {
   const PlanItemCard({
-    Key? key,
     required this.item,
+    super.key,
     this.highlightedName,
-  }) : super(key: key);
+  });
 
   final PlanItem item;
   final String? highlightedName;
@@ -28,7 +28,7 @@ class PlanItemCard extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -45,7 +45,7 @@ class PlanItemCard extends StatelessWidget {
                 const Icon(Icons.location_on, size: 16),
                 const SizedBox(width: 8),
                 Expanded(
-                  child: Text(item.location ?? "Kein Ort"),
+                  child: Text(item.location ?? 'Kein Ort'),
                 ),
               ],
             ),
@@ -55,7 +55,7 @@ class PlanItemCard extends StatelessWidget {
                 const Icon(Icons.info, size: 16),
                 const SizedBox(width: 8),
                 Expanded(
-                  child: Text(item.extra ?? "Keine Info"),
+                  child: Text(item.extra ?? 'Keine Info'),
                 ),
               ],
             ),
@@ -67,7 +67,7 @@ class PlanItemCard extends StatelessWidget {
                     }
 
                     return Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
+                      padding: const EdgeInsets.only(top: 8),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -85,9 +85,10 @@ class PlanItemCard extends StatelessWidget {
                                     final highlighted =
                                         highlightedName != null &&
                                             e.toLowerCase().contains(
-                                                highlightedName!
-                                                    .trim()
-                                                    .toLowerCase());
+                                                  highlightedName!
+                                                      .trim()
+                                                      .toLowerCase(),
+                                                );
 
                                     return TextSpan(
                                       text: e,
@@ -104,7 +105,7 @@ class PlanItemCard extends StatelessWidget {
                                     );
                                   })
                                   .toList()
-                                  .genericJoin(const TextSpan(text: " · ")),
+                                  .genericJoin(const TextSpan(text: ' · ')),
                             ),
                           ),
                           // Text(e.value.join(" · "))

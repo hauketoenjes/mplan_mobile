@@ -40,7 +40,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var _selectedDestination = 1;
   List<(NavigationDestination destination, Widget widget)> getDestinations(
-      BuildContext context) {
+    BuildContext context,
+  ) {
     return [
       (
         NavigationDestination(
@@ -51,8 +52,9 @@ class _MyAppState extends State<MyApp> {
       ),
       (
         NavigationDestination(
-            icon: const Icon(Icons.person),
-            label: context.l10n.perosnalPlanPage_title),
+          icon: const Icon(Icons.person),
+          label: context.l10n.perosnalPlanPage_title,
+        ),
         const PersonalPlanPage()
       ),
       (
@@ -79,27 +81,29 @@ class _MyAppState extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: const [
-        Locale("de"),
+        Locale('de'),
       ],
-      locale: const Locale("de"),
-      home: Builder(builder: (context) {
-        final destinations = getDestinations(context);
+      locale: const Locale('de'),
+      home: Builder(
+        builder: (context) {
+          final destinations = getDestinations(context);
 
-        return Scaffold(
-          bottomNavigationBar: NavigationBar(
-            onDestinationSelected: (index) {
-              setState(() {
-                _selectedDestination = index;
-              });
-            },
-            selectedIndex: _selectedDestination,
-            destinations: destinations.map((e) => e.$1).toList(),
-          ),
-          body: SafeArea(
-            child: destinations[_selectedDestination].$2,
-          ),
-        );
-      }),
+          return Scaffold(
+            bottomNavigationBar: NavigationBar(
+              onDestinationSelected: (index) {
+                setState(() {
+                  _selectedDestination = index;
+                });
+              },
+              selectedIndex: _selectedDestination,
+              destinations: destinations.map((e) => e.$1).toList(),
+            ),
+            body: SafeArea(
+              child: destinations[_selectedDestination].$2,
+            ),
+          );
+        },
+      ),
     );
   }
 }

@@ -18,12 +18,11 @@ class PlanRepository {
 
   /// Get the plan from the API.
   Future<List<PlanItem>> getPlan() async {
-    final response = await _dio.get(
+    final response = await _dio.get<List<Map<String, dynamic>>>(
       'https://europe-west3-messdienerplan-984ef.cloudfunctions.net/getPlan',
     );
 
-    final plan =
-        response.data.map<PlanItem>((item) => PlanItem.fromJson(item)).toList();
+    final plan = response.data?.map<PlanItem>(PlanItem.fromJson).toList() ?? [];
 
     return plan;
   }

@@ -9,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class PersonalPlanPage extends StatefulWidget {
-  const PersonalPlanPage({Key? key}) : super(key: key);
+  const PersonalPlanPage({super.key});
 
   @override
   State<PersonalPlanPage> createState() => _PersonalPlanPageState();
@@ -20,15 +20,15 @@ class _PersonalPlanPageState extends State<PersonalPlanPage> {
   final _prefs = GetIt.I<SharedPreferences>();
   final PlanRepository _planRepository = GetIt.I<PlanRepository>();
 
-  var _currentName = "";
+  var _currentName = '';
   late Future<List<PlanItem>> _plan;
 
-  void _saveName(String name) async {
+  Future<void> _saveName(String name) async {
     setState(() {
       _currentName = name;
     });
 
-    _prefs.setString(nameKey, name);
+    await _prefs.setString(nameKey, name);
   }
 
   @override
@@ -36,7 +36,7 @@ class _PersonalPlanPageState extends State<PersonalPlanPage> {
     super.initState();
     _plan = _planRepository.getPlan();
 
-    final String? name = _prefs.getString(nameKey);
+    final name = _prefs.getString(nameKey);
     if (name != null) {
       _controller.text = name;
       setState(() {
@@ -48,7 +48,7 @@ class _PersonalPlanPageState extends State<PersonalPlanPage> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.all(24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -57,7 +57,6 @@ class _PersonalPlanPageState extends State<PersonalPlanPage> {
             style: Theme.of(context).textTheme.displaySmall,
           ),
           TextField(
-            autofocus: false,
             autocorrect: false,
             maxLines: 3,
             minLines: 1,
@@ -70,9 +69,7 @@ class _PersonalPlanPageState extends State<PersonalPlanPage> {
               border: InputBorder.none,
             ),
             controller: _controller,
-            onChanged: (value) {
-              _saveName(value);
-            },
+            onChanged: _saveName,
             style: Theme.of(context).textTheme.displaySmall?.copyWith(
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.underline,
@@ -89,23 +86,31 @@ class _PersonalPlanPageState extends State<PersonalPlanPage> {
                 }
 
                 if (snapshot.hasError) {
-                  return Text("${snapshot.error}");
+                  return Text('${snapshot.error}');
                 }
 
-                final List<PlanItem> items = snapshot.data!.where((element) {
-                  var acolytes = element.acolytes!.entries
+                final items = snapshot.data!.where((element) {
+                  final acolytes = element.acolytes!.entries
                       .expand((element) => element.value);
 
-                  return acolytes.any((element) => element
-                      .toLowerCase()
-                      .contains(_currentName.trim().toLowerCase()));
+                  return acolytes.any(
+                    (element) => element
+                        .toLowerCase()
+                        .contains(_currentName.trim().toLowerCase()),
+                  );
                 }).toList();
 
                 var text = context.l10n.personalPlanPage_intro(items.length);
 
                 if (items.isNotEmpty) {
+                  final timeagoText = timeago.format(
+                    items.first.date,
+                    allowFromNow: true,
+                    locale: 'de',
+                  );
+
                   text +=
-                      " ${context.l10n.personalPlanPage_nextTime(timeago.format(items.first.date, allowFromNow: true, locale: 'de'))}";
+                      ' ${context.l10n.personalPlanPage_nextTime(timeagoText)}';
                 }
 
                 if (_currentName.isEmpty) {
