@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
+import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/misc/list_extensions.dart';
 
 class PlanItemCard extends StatelessWidget {
@@ -8,10 +9,12 @@ class PlanItemCard extends StatelessWidget {
     required this.item,
     super.key,
     this.highlightedName,
+    this.onAddToCalendar,
   });
 
   final PlanItem item;
   final String? highlightedName;
+  final void Function()? onAddToCalendar;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,7 @@ class PlanItemCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               format.format(item.date.toLocal()),
@@ -108,13 +111,27 @@ class PlanItemCard extends StatelessWidget {
                                   .genericJoin(const TextSpan(text: ' · ')),
                             ),
                           ),
-                          // Text(e.value.join(" · "))
                         ],
                       ),
                     );
                   },
                 ) ??
                 [],
+            if (onAddToCalendar != null) ...[
+              const SizedBox(height: 8),
+              Wrap(
+                alignment: WrapAlignment.end,
+                children: [
+                  TextButton.icon(
+                    icon: const Icon(Icons.edit_calendar),
+                    onPressed: onAddToCalendar,
+                    label: Text(
+                      context.l10n.general_addToCalendar,
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ],
         ),
       ),

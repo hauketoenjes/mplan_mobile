@@ -1,3 +1,7 @@
+import 'dart:async';
+
+import 'package:add_2_calendar/add_2_calendar.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
@@ -29,6 +33,48 @@ class _PersonalPlanPageState extends State<PersonalPlanPage> {
     });
 
     await _prefs.setString(nameKey, name);
+  }
+
+  /// Filters the given [plan] by the given [name].
+  /// Accounts for lower- and uppercase names and trimms the name.
+  List<PlanItem> _filterPlan(List<PlanItem> plan, String name) {
+    return plan.where((element) {
+      final acolytes =
+          element.acolytes?.entries.expand((element) => element.value);
+
+      return acolytes?.any(
+            (element) =>
+                element.toLowerCase().contains(name.trim().toLowerCase()),
+          ) ??
+          false;
+    }).toList();
+  }
+
+  /// Returns the role of the given [name] in the given [item].
+  /// Accounts for lower- and uppercase names and trimms the name.
+  String? _getRole(PlanItem item, String name) {
+    return item.acolytes?.entries.firstWhereOrNull((element) {
+      return element.value.any(
+        (element) => element.toLowerCase().contains(name.trim().toLowerCase()),
+      );
+    })?.key;
+  }
+
+  /// Returns a Calendar [Event] for the given [item] and [name].
+  Event _getEvent(PlanItem item, String name, BuildContext context) {
+    final role = _getRole(item, name);
+
+    return Event(
+      title: context.l10n.personalPlanPage_calendarTitle,
+      description: context.l10n.personalPlanPage_calendarDescription(
+        role ?? '-',
+        item.location ?? '-',
+        item.extra ?? '-',
+      ),
+      startDate: item.date,
+      location: item.location,
+      endDate: item.date.add(const Duration(hours: 1)),
+    );
   }
 
   @override
@@ -81,40 +127,45 @@ class _PersonalPlanPageState extends State<PersonalPlanPage> {
             child: FutureBuilder<List<PlanItem>>(
               future: _plan,
               builder: (context, snapshot) {
+                //
+                // Loading state
+                //
                 if (!snapshot.hasData && !snapshot.hasError) {
                   return const Center(child: CircularProgressIndicator());
                 }
 
+                //
+                // Error state
+                //
                 if (snapshot.hasError) {
                   return Text('${snapshot.error}');
                 }
 
-                final items = snapshot.data!.where((element) {
-                  final acolytes = element.acolytes!.entries
-                      .expand((element) => element.value);
+                //
+                // Success state
+                //
 
-                  return acolytes.any(
-                    (element) => element
-                        .toLowerCase()
-                        .contains(_currentName.trim().toLowerCase()),
-                  );
-                }).toList();
+                // If there are no items, return a text
+                if (_currentName.isEmpty) {
+                  return Text(context.l10n.personalPlanPage_emptyName);
+                }
 
-                var text = context.l10n.personalPlanPage_intro(items.length);
+                // Filter the items by the current name
+                final filteredItems = _filterPlan(snapshot.data!, _currentName);
 
-                if (items.isNotEmpty) {
+                // Define the intro text
+                var text =
+                    context.l10n.personalPlanPage_intro(filteredItems.length);
+
+                // If there are items, add the next time as text to the intro
+                if (filteredItems.isNotEmpty) {
                   final timeagoText = timeago.format(
-                    items.first.date,
+                    filteredItems.first.date,
                     allowFromNow: true,
                     locale: 'de',
                   );
-
                   text +=
                       ' ${context.l10n.personalPlanPage_nextTime(timeagoText)}';
-                }
-
-                if (_currentName.isEmpty) {
-                  return Text(context.l10n.personalPlanPage_emptyName);
                 }
 
                 return Column(
@@ -124,12 +175,18 @@ class _PersonalPlanPageState extends State<PersonalPlanPage> {
                     const SizedBox(height: 16),
                     Expanded(
                       child: ListView.builder(
-                        itemCount: items.length,
+                        itemCount: filteredItems.length,
                         itemBuilder: (context, index) {
-                          final item = items[index];
+                          final item = filteredItems[index];
                           return PlanItemCard(
                             item: item,
                             highlightedName: _currentName,
+                            onAddToCalendar: () {
+                              // Get event and add it to the calendar
+                              final event =
+                                  _getEvent(item, _currentName, context);
+                              unawaited(Add2Calendar.addEvent2Cal(event));
+                            },
                           );
                         },
                       ),

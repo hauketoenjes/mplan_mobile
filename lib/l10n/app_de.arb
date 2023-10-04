@@ -20,9 +20,25 @@
       }
     }
   },
+  "personalPlanPage_calendarDescription": "Rolle: {role}\nOrt: {location}\nWeitere Information: {info}",
+  "@personalPlanPage_calendarDescription": {
+    "placeholders": {
+      "role": {
+        "type": "String"
+      },
+      "location": {
+        "type": "String"
+      },
+      "info": {
+        "type": "String"
+      }
+    }
+  },
+  "personalPlanPage_calendarTitle": "Messe dienen",
   "planPage_title": "Dienstplan",
   "settingsPage_title": "Einstellungen",
   "settingsPage_about": "Über diese App",
   "settingsPage_aboutDescription": "Informationen über diese App. Lizenzen, Versionsnummer, usw.",
-  "settingsPage_aboutDialog": "App zum Anzeigen des Messdienerplans der Messdiener St. Vitus Visbek."
+  "settingsPage_aboutDialog": "App zum Anzeigen des Messdienerplans der Messdiener St. Vitus Visbek.",
+  "general_addToCalendar": "Zum Kalender hinzufügen"
 }

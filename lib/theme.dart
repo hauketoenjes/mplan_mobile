@@ -10,6 +10,11 @@ ThemeData getTheme(Brightness brightness) {
     ),
     brightness: brightness,
     useMaterial3: true,
+    listTileTheme: ListTileThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+    ),
   );
 
   final textTheme = GoogleFonts.plusJakartaSansTextTheme(baseTheme.textTheme);

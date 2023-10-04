@@ -9,6 +9,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "64.0.0"
+  add_2_calendar:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: ios17
+      resolved-ref: "38b63dd1bab5d24ec01213211b12e086bcb387a9"
+      url: "git@github.com:mauricioluz/add_2_calendar.git"
+    source: git
+    version: "2.2.4"
   analyzer:
     dependency: transitive
     description:
@@ -138,7 +147,7 @@ packages:
     source: hosted
     version: "4.7.0"
   collection:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: collection
       sha256: f092b211a4319e98e5ff58223576de6c2803db36221657b46c82574721240687
