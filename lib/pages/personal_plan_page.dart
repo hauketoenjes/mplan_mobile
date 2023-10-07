@@ -157,7 +157,10 @@ class _PersonalPlanPageState extends State<PersonalPlanPage> {
 
               // If there are no items, return a text
               if (_currentName.isEmpty) {
-                return Text(context.l10n.personalPlanPage_emptyName);
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Text(context.l10n.personalPlanPage_emptyName),
+                );
               }
 
               // Filter the items by the current name

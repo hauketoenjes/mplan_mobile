@@ -1,9 +1,14 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get_it/get_it.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:mplan_mobile/api/repositories/plan_repository.dart';
+import 'package:mplan_mobile/gen/assets.gen.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/pages/personal_plan_page.dart';
 import 'package:mplan_mobile/pages/plan_page.dart';
@@ -13,7 +18,20 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // Wait for the widget binding to be initialized before initializing
+  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // Preserve splash screen to do the initialization before calling runApp
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+  // Disable runtime fetching of Google Fonts
+  GoogleFonts.config.allowRuntimeFetching = false;
+
+  // Add license for the used Google Font
+  LicenseRegistry.addLicense(() async* {
+    final license = await rootBundle.loadString(Assets.fonts.ofl);
+    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
+  });
+
   await initializeDateFormatting();
   timeago.setLocaleMessages('de', timeago.DeMessages());
 
@@ -70,6 +88,9 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // Remove the splash screen
+    FlutterNativeSplash.remove();
+
     return MaterialApp(
       title: 'Messdienerplan',
       theme: getTheme(Brightness.light),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mplan_mobile/gen/assets.gen.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -26,6 +27,10 @@ class SettingsPage extends StatelessWidget {
             onTap: () {
               showAboutDialog(
                 context: context,
+                applicationIcon: CircleAvatar(
+                  backgroundImage: Assets.images.msvvLogo.provider(),
+                  radius: 24,
+                ),
                 applicationName: 'Messdienerplan',
                 children: [
                   Text(context.l10n.settingsPage_aboutDialog),
