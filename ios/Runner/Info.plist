@@ -51,5 +51,7 @@
 		<string>Die App benötigt Zugriff auf die Kontakte, damit die Kalenderintegration richtig funktioniert.</string>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<key>ITSAppUsesNonExemptEncryption</key>
+		<false/>
 	</dict>
 </plist>
