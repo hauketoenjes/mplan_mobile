@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/hauketoenjes/mplan_mobile/compare/v1.0.0...v1.0.1) (2023-10-07)
+
+
+### Bug Fixes
+
+* Add compliance key to info.plist ([#6](https://github.com/hauketoenjes/mplan_mobile/issues/6)) ([d7e9223](https://github.com/hauketoenjes/mplan_mobile/commit/d7e9223efb3f35090e153fcef2f2776a8f42c71a))
+
 ## 1.0.0 (2023-10-07)
 
 
