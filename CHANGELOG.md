@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/hauketoenjes/mplan_mobile/compare/v1.1.1...v1.1.2) (2023-10-07)
+
+
+### Miscellaneous Chores
+
+* release 1.1.2 ([#12](https://github.com/hauketoenjes/mplan_mobile/issues/12)) ([77d6ff1](https://github.com/hauketoenjes/mplan_mobile/commit/77d6ff1943aa6d10691cb58741718efc8c6d4228))
+
 ## [1.1.1](https://github.com/hauketoenjes/mplan_mobile/compare/v1.1.0...v1.1.1) (2023-10-07)
 
 
