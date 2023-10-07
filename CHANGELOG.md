@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.0.1...v1.1.0) (2023-10-07)
+
+
+### Features
+
+* Add config for release signing ([#8](https://github.com/hauketoenjes/mplan_mobile/issues/8)) ([41333a3](https://github.com/hauketoenjes/mplan_mobile/commit/41333a33c7d24dd4676603ffc699c3c26d366d63))
+
 ## [1.0.1](https://github.com/hauketoenjes/mplan_mobile/compare/v1.0.0...v1.0.1) (2023-10-07)
 
 
