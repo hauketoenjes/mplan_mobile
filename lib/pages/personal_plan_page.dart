@@ -9,6 +9,7 @@ import 'package:mplan_mobile/api/repositories/plan_repository.dart';
 import 'package:mplan_mobile/constants.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/widgets/plan_item_card.dart';
+import 'package:mplan_mobile/widgets/show_later.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -93,111 +94,127 @@ class _PersonalPlanPageState extends State<PersonalPlanPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            context.l10n.personalPlanPage_greeting,
-            style: Theme.of(context).textTheme.displaySmall,
-          ),
-          TextField(
-            autocorrect: false,
-            maxLines: 3,
-            minLines: 1,
-            textInputAction: TextInputAction.done,
-            autofillHints: const [AutofillHints.name],
-            decoration: InputDecoration(
-              hintText: context.l10n.personalPlanPage_hint,
-              hintStyle: const TextStyle(decoration: TextDecoration.none),
-              contentPadding: EdgeInsets.zero,
-              border: InputBorder.none,
-            ),
-            controller: _controller,
-            onChanged: _saveName,
-            style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.underline,
-                  decorationColor: Theme.of(context).colorScheme.primary,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                context.l10n.personalPlanPage_greeting,
+                style: Theme.of(context).textTheme.displaySmall,
+              ),
+              TextField(
+                autocorrect: false,
+                maxLines: 3,
+                minLines: 1,
+                textInputAction: TextInputAction.done,
+                autofillHints: const [AutofillHints.name],
+                decoration: InputDecoration(
+                  hintText: context.l10n.personalPlanPage_hint,
+                  hintStyle: const TextStyle(decoration: TextDecoration.none),
+                  contentPadding: EdgeInsets.zero,
+                  border: InputBorder.none,
                 ),
+                controller: _controller,
+                onChanged: _saveName,
+                style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                      decorationColor: Theme.of(context).colorScheme.primary,
+                    ),
+              ),
+            ],
           ),
-          const SizedBox(height: 32),
-          Expanded(
-            child: FutureBuilder<List<PlanItem>>(
-              future: _plan,
-              builder: (context, snapshot) {
-                //
-                // Loading state
-                //
-                if (!snapshot.hasData && !snapshot.hasError) {
-                  return const Center(child: CircularProgressIndicator());
-                }
+        ),
+        const SizedBox(height: 32),
+        Expanded(
+          child: FutureBuilder<List<PlanItem>>(
+            future: _plan,
+            builder: (context, snapshot) {
+              //
+              // Loading state
+              //
+              if (!snapshot.hasData && !snapshot.hasError) {
+                return const ShowLater(
+                  duration: Duration(milliseconds: 100),
+                  child: Center(child: CircularProgressIndicator()),
+                );
+              }
 
-                //
-                // Error state
-                //
-                if (snapshot.hasError) {
-                  return Text('${snapshot.error}');
-                }
+              //
+              // Error state
+              //
+              if (snapshot.hasError) {
+                return Text('${snapshot.error}');
+              }
 
-                //
-                // Success state
-                //
+              //
+              // Success state
+              //
 
-                // If there are no items, return a text
-                if (_currentName.isEmpty) {
-                  return Text(context.l10n.personalPlanPage_emptyName);
-                }
+              // If there are no items, return a text
+              if (_currentName.isEmpty) {
+                return Text(context.l10n.personalPlanPage_emptyName);
+              }
 
-                // Filter the items by the current name
-                final filteredItems = _filterPlan(snapshot.data!, _currentName);
+              // Filter the items by the current name
+              final filteredItems = _filterPlan(snapshot.data!, _currentName);
 
-                // Define the intro text
-                var text =
-                    context.l10n.personalPlanPage_intro(filteredItems.length);
+              // Define the intro text
+              var text =
+                  context.l10n.personalPlanPage_intro(filteredItems.length);
 
-                // If there are items, add the next time as text to the intro
-                if (filteredItems.isNotEmpty) {
-                  final timeagoText = timeago.format(
-                    filteredItems.first.date,
-                    allowFromNow: true,
-                    locale: 'de',
-                  );
-                  text +=
-                      ' ${context.l10n.personalPlanPage_nextTime(timeagoText)}';
-                }
+              // If there are items, add the next time as text to the intro
+              if (filteredItems.isNotEmpty) {
+                final timeagoText = timeago.format(
+                  filteredItems.first.date,
+                  allowFromNow: true,
+                  locale: 'de',
+                );
+                text +=
+                    ' ${context.l10n.personalPlanPage_nextTime(timeagoText)}';
+              }
 
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(text),
-                    const SizedBox(height: 16),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: filteredItems.length,
-                        itemBuilder: (context, index) {
-                          final item = filteredItems[index];
-                          return PlanItemCard(
-                            item: item,
-                            highlightedName: _currentName,
-                            onAddToCalendar: () {
-                              // Get event and add it to the calendar
-                              final event =
-                                  _getEvent(item, _currentName, context);
-                              unawaited(Add2Calendar.addEvent2Cal(event));
-                            },
-                          );
-                        },
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(text),
+                  ),
+                  const SizedBox(height: 16),
+                  Expanded(
+                    child: Scrollbar(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        child: ListView.builder(
+                          itemCount: filteredItems.length,
+                          itemBuilder: (context, index) {
+                            final item = filteredItems[index];
+                            return PlanItemCard(
+                              item: item,
+                              highlightedName: _currentName,
+                              onAddToCalendar: () {
+                                // Get event and add it to the calendar
+                                final event =
+                                    _getEvent(item, _currentName, context);
+                                unawaited(Add2Calendar.addEvent2Cal(event));
+                              },
+                            );
+                          },
+                        ),
                       ),
                     ),
-                  ],
-                );
-              },
-            ),
+                  ),
+                ],
+              );
+            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -39,30 +39,30 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _selectedDestination = 1;
-  List<(NavigationDestination destination, Widget widget)> getDestinations(
+  List<({NavigationDestination destination, Widget widget})> getDestinations(
     BuildContext context,
   ) {
     return [
       (
-        NavigationDestination(
+        destination: NavigationDestination(
           icon: const Icon(Icons.list),
           label: context.l10n.planPage_title,
         ),
-        const PlanPage()
+        widget: const PlanPage()
       ),
       (
-        NavigationDestination(
+        destination: NavigationDestination(
           icon: const Icon(Icons.person),
           label: context.l10n.perosnalPlanPage_title,
         ),
-        const PersonalPlanPage()
+        widget: const PersonalPlanPage()
       ),
       (
-        NavigationDestination(
+        destination: NavigationDestination(
           icon: const Icon(Icons.settings),
           label: context.l10n.settingsPage_title,
         ),
-        const SettingsPage()
+        widget: const SettingsPage()
       ),
     ];
   }
@@ -87,6 +87,7 @@ class _MyAppState extends State<MyApp> {
       home: Builder(
         builder: (context) {
           final destinations = getDestinations(context);
+          final currentDestination = destinations[_selectedDestination].widget;
 
           return Scaffold(
             bottomNavigationBar: NavigationBar(
@@ -96,10 +97,13 @@ class _MyAppState extends State<MyApp> {
                 });
               },
               selectedIndex: _selectedDestination,
-              destinations: destinations.map((e) => e.$1).toList(),
+              destinations: destinations.map((e) => e.destination).toList(),
             ),
             body: SafeArea(
-              child: destinations[_selectedDestination].$2,
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                child: currentDestination,
+              ),
             ),
           );
         },
