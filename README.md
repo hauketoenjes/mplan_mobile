@@ -1,16 +1,21 @@
-# mplan_mobile
+# Messdienerplan (mplan_mobile)
 
-A new Flutter project.
+[![Codemagic build status](https://api.codemagic.io/apps/65219eeb2a151fc4612f5f8e/65219eeb2a151fc4612f5f8d/status_badge.svg)](https://codemagic.io/apps/65219eeb2a151fc4612f5f8e/65219eeb2a151fc4612f5f8d/latest_build)
+[![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 
-## Getting Started
+App that shows the current plan for the Messdiener St. Vitus Visbek.
 
-This project is a starting point for a Flutter application.
+## Functionalities
 
-A few resources to get you started if this is your first Flutter project:
+The following functionalities are implemented:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Show the complete plan
+   - Shows a list of the current publicly available plan. This is exactly the same as the plan on the website.
+2. Show a personalized plan
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+   - Based on the available plan, the user can enter a name to get a personalized plan. In this view, the dates can be added to the calendar of the device.
+
+   ## Links
+
+   - [Messdiener St. Vitus Visbek](https://messdiener-visbek.de)
+   - [Dienstplan | Messdiener St. Vitus Visbek](https://messdiener-visbek.de/plan)
