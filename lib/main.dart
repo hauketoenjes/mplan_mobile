@@ -14,6 +14,7 @@ import 'package:mplan_mobile/pages/personal_plan_page.dart';
 import 'package:mplan_mobile/pages/plan_page.dart';
 import 'package:mplan_mobile/pages/settings_page.dart';
 import 'package:mplan_mobile/theme.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -32,6 +33,9 @@ Future<void> main() async {
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
 
+  // Get package info
+  final packageInfo = await PackageInfo.fromPlatform();
+
   await initializeDateFormatting();
   timeago.setLocaleMessages('de', timeago.DeMessages());
 
@@ -42,6 +46,7 @@ Future<void> main() async {
   final sharedPreferences = await SharedPreferences.getInstance();
 
   // Dependency injection
+  GetIt.I.registerSingleton<PackageInfo>(packageInfo);
   GetIt.I.registerSingleton<PlanRepository>(PlanRepository());
   GetIt.I.registerSingleton<SharedPreferences>(sharedPreferences);
 
