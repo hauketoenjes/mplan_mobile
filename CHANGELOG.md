@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.1](https://github.com/hauketoenjes/mplan_mobile/compare/v1.2.0...v1.2.1) (2023-10-12)
+
+
+### Bug Fixes
+
+* Add internet permission in AndroidManifest.xml ([#23](https://github.com/hauketoenjes/mplan_mobile/issues/23)) ([586b2f1](https://github.com/hauketoenjes/mplan_mobile/commit/586b2f1171f5b7bd313a1b0bc0f019183dd4b84b))
+* Use correct default language for ios ([#21](https://github.com/hauketoenjes/mplan_mobile/issues/21)) ([d459c70](https://github.com/hauketoenjes/mplan_mobile/commit/d459c704de84ec310b448f944ce0167494c64075))
+
 ## [1.2.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.1.4...v1.2.0) (2023-10-08)
 
 
