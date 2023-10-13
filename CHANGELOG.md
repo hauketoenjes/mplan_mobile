@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/hauketoenjes/mplan_mobile/compare/v1.2.2...v1.2.3) (2023-10-13)
+
+
+### Bug Fixes
+
+* Use add_2_calendar before gradle upgrade ([#27](https://github.com/hauketoenjes/mplan_mobile/issues/27)) ([48d49db](https://github.com/hauketoenjes/mplan_mobile/commit/48d49db21c7cb7408122ac8f7ee760328edd26dd))
+
 ## [1.2.2](https://github.com/hauketoenjes/mplan_mobile/compare/v1.2.1...v1.2.2) (2023-10-13)
 
 
