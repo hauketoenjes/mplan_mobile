@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/hauketoenjes/mplan_mobile/compare/v1.2.1...v1.2.2) (2023-10-13)
+
+
+### Bug Fixes
+
+* Use the published version of the calendar package again ([#24](https://github.com/hauketoenjes/mplan_mobile/issues/24)) ([fad7458](https://github.com/hauketoenjes/mplan_mobile/commit/fad7458c554996aeffa444d72081fa56483e2561))
+
 ## [1.2.1](https://github.com/hauketoenjes/mplan_mobile/compare/v1.2.0...v1.2.1) (2023-10-12)
 
 
