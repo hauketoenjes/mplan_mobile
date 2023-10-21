@@ -3,7 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
 import 'package:mplan_mobile/api/repositories/plan_repository.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
-import 'package:mplan_mobile/widgets/plan_item_card.dart';
+import 'package:mplan_mobile/widgets/plan_item_card/plan_item_card.dart';
 import 'package:mplan_mobile/widgets/show_later.dart';
 
 class PlanPage extends StatefulWidget {
