@@ -21,6 +21,10 @@ Future<List<PlanItem>> fetchPlan(
 /// Filters the given [plan] by the given [name].
 /// Accounts for lower- and uppercase names and trimms the name.
 List<PlanItem> filterPlan(List<PlanItem> plan, String name) {
+  if (name.isEmpty) {
+    return [];
+  }
+
   return plan.where((element) {
     final acolytes =
         element.acolytes?.entries.expand((element) => element.value);
