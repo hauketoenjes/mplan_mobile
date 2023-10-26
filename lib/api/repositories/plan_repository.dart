@@ -22,7 +22,7 @@ class PlanRepository {
     final response = await _dio.get<List<dynamic>>(
       planFetchUrl.toString(),
       options: skipCache
-          ? _cacheOptions.copyWith(policy: CachePolicy.noCache).toOptions()
+          ? _cacheOptions.copyWith(policy: CachePolicy.refresh).toOptions()
           : null,
     );
 
