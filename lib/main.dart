@@ -68,21 +68,21 @@ class _MyAppState extends State<MyApp> {
     return [
       (
         destination: NavigationDestination(
-          icon: const Icon(Icons.list),
+          icon: const Icon(Icons.calendar_month_outlined),
           label: context.l10n.planPage_title,
         ),
         widget: const PlanPage()
       ),
       (
         destination: NavigationDestination(
-          icon: const Icon(Icons.person),
+          icon: const Icon(Icons.person_outline_outlined),
           label: context.l10n.perosnalPlanPage_title,
         ),
         widget: const PersonalPlanPage()
       ),
       (
         destination: NavigationDestination(
-          icon: const Icon(Icons.settings),
+          icon: const Icon(Icons.settings_outlined),
           label: context.l10n.settingsPage_title,
         ),
         widget: const SettingsPage()
@@ -101,7 +101,7 @@ class _MyAppState extends State<MyApp> {
       theme: getTheme(Brightness.light),
       darkTheme: getTheme(Brightness.dark),
       localizationsDelegates: const [
-        AppLocalizations.delegate, // Add this line
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,

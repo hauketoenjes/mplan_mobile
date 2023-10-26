@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:dio_cache_interceptor_hive_store/dio_cache_interceptor_hive_store.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
+import 'package:mplan_mobile/app_configuration.dart';
 
 class PlanRepository {
   /// Cache options. Use the default store (Hive).
@@ -18,9 +19,7 @@ class PlanRepository {
 
   /// Get the plan from the API.
   Future<List<PlanItem>> getPlan() async {
-    final response = await _dio.get<List<dynamic>>(
-      'https://europe-west3-messdienerplan-984ef.cloudfunctions.net/getPlan',
-    );
+    final response = await _dio.get<List<dynamic>>(planFetchUrl.toString());
 
     final plan = response.data
             ?.map((e) => e as Map<String, dynamic>)
