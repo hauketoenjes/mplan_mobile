@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -13,6 +14,7 @@ import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/pages/personal_plan_page.dart';
 import 'package:mplan_mobile/pages/plan_page.dart';
 import 'package:mplan_mobile/pages/settings_page.dart';
+import 'package:mplan_mobile/providers/misc_provider/misc_provider.dart';
 import 'package:mplan_mobile/theme.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -46,11 +48,18 @@ Future<void> main() async {
   final sharedPreferences = await SharedPreferences.getInstance();
 
   // Dependency injection
-  GetIt.I.registerSingleton<PackageInfo>(packageInfo);
+  // TODO: replace with Riverpod
   GetIt.I.registerSingleton<PlanRepository>(PlanRepository());
-  GetIt.I.registerSingleton<SharedPreferences>(sharedPreferences);
 
-  runApp(const MyApp());
+  runApp(
+    ProviderScope(
+      overrides: [
+        sharedPreferencesProvider.overrideWithValue(sharedPreferences),
+        packageInfoProvider.overrideWithValue(packageInfo),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {

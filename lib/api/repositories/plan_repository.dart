@@ -18,8 +18,13 @@ class PlanRepository {
     );
 
   /// Get the plan from the API.
-  Future<List<PlanItem>> getPlan() async {
-    final response = await _dio.get<List<dynamic>>(planFetchUrl.toString());
+  Future<List<PlanItem>> getPlan({bool skipCache = false}) async {
+    final response = await _dio.get<List<dynamic>>(
+      planFetchUrl.toString(),
+      options: skipCache
+          ? _cacheOptions.copyWith(policy: CachePolicy.noCache).toOptions()
+          : null,
+    );
 
     final plan = response.data
             ?.map((e) => e as Map<String, dynamic>)

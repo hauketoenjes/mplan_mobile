@@ -32,6 +32,8 @@ dependencies:
       url: https://github.com/ja2375/add_2_calendar
       ref: 24eb76acb4acf8a989c309b47caa459ed66197fe
   url_launcher: ^6.2.1
+  flutter_riverpod: ^2.4.4
+  riverpod_annotation: ^2.2.1
 
 dev_dependencies:
   flutter_test:
@@ -42,6 +44,9 @@ dev_dependencies:
   json_serializable: ^6.7.1
   very_good_analysis: ^5.1.0
   flutter_gen_runner: ^5.3.2
+  riverpod_generator: ^2.3.5
+  custom_lint: ^0.5.5
+  riverpod_lint: ^2.3.2
 
 flutter:
   generate: true

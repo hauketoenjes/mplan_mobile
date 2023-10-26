@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/misc/list_extensions.dart';
-import 'package:mplan_mobile/widgets/plan_item_card/widgets/date_text.dart';
-import 'package:mplan_mobile/widgets/plan_item_card/widgets/grouped_acolytes.dart';
-import 'package:mplan_mobile/widgets/plan_item_card/widgets/information_row.dart';
-import 'package:mplan_mobile/widgets/plan_item_card/widgets/wrapping_card.dart';
+import 'package:mplan_mobile/widgets/plan_item/widgets/date_text.dart';
+import 'package:mplan_mobile/widgets/plan_item/widgets/grouped_acolytes.dart';
+import 'package:mplan_mobile/widgets/plan_item/widgets/information_row.dart';
+import 'package:mplan_mobile/widgets/plan_item/widgets/wrapping_card.dart';
 
 class PlanItemCard extends StatelessWidget {
   const PlanItemCard({

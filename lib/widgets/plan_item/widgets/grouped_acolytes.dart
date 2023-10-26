@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mplan_mobile/widgets/plan_item_card/widgets/grouped_role.dart';
+import 'package:mplan_mobile/widgets/plan_item/widgets/grouped_role.dart';
 
 class GroupedAcolytes extends StatelessWidget {
   const GroupedAcolytes({

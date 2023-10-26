@@ -16,24 +16,29 @@ class Layout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            pageTitle,
-            style: Theme.of(context).textTheme.displaySmall,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                pageTitle,
+                style: Theme.of(context).textTheme.displaySmall,
+              ),
+              if (subtitle != null) subtitle!,
+              const SizedBox(height: 16),
+              if (informativeText != null) ...[
+                Text(informativeText!),
+                const SizedBox(height: 16),
+              ],
+            ],
           ),
-          if (subtitle != null) subtitle!,
-          const SizedBox(height: 16),
-          if (informativeText != null) ...[
-            Text(informativeText!),
-            const SizedBox(height: 16),
-          ],
-          Expanded(child: child),
-        ],
-      ),
+        ),
+        Expanded(child: child),
+      ],
     );
   }
 }
