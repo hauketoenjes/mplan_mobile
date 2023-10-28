@@ -6,7 +6,22 @@ part of 'plan_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$fetchPlanHash() => r'ee7c56a4d6119132910374a8e4deb028d3e312e9';
+String _$planRepositoryHash() => r'd8f4f568d8d891c6bfb56f0b585caae6ee1baf94';
+
+/// See also [planRepository].
+@ProviderFor(planRepository)
+final planRepositoryProvider = AutoDisposeProvider<PlanRepository>.internal(
+  planRepository,
+  name: r'planRepositoryProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$planRepositoryHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef PlanRepositoryRef = AutoDisposeProviderRef<PlanRepository>;
+String _$fetchPlanHash() => r'bb3f37719e5bb58a276ddf989be3f61feb3d01d4';
 
 /// Copied from Dart SDK
 class _SystemHash {

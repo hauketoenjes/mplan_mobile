@@ -4,11 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:mplan_mobile/api/repositories/plan_repository.dart';
 import 'package:mplan_mobile/gen/assets.gen.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/pages/personal_plan_page.dart';
@@ -35,9 +33,6 @@ Future<void> main() async {
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
 
-  // Get package info
-  final packageInfo = await PackageInfo.fromPlatform();
-
   await initializeDateFormatting();
   timeago.setLocaleMessages('de', timeago.DeMessages());
 
@@ -47,9 +42,8 @@ Future<void> main() async {
   // SharedPreferences
   final sharedPreferences = await SharedPreferences.getInstance();
 
-  // Dependency injection
-  // TODO: replace with Riverpod
-  GetIt.I.registerSingleton<PlanRepository>(PlanRepository());
+  // Get package info
+  final packageInfo = await PackageInfo.fromPlatform();
 
   runApp(
     ProviderScope(

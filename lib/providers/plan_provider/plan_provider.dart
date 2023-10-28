@@ -1,7 +1,6 @@
 import 'package:add_2_calendar/add_2_calendar.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
 import 'package:mplan_mobile/api/repositories/plan_repository.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
@@ -10,11 +9,14 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'plan_provider.g.dart';
 
 @riverpod
+PlanRepository planRepository(PlanRepositoryRef ref) => PlanRepository();
+
+@riverpod
 Future<List<PlanItem>> fetchPlan(
   FetchPlanRef ref, {
   bool forceRefresh = false,
 }) async {
-  final planRepository = GetIt.I<PlanRepository>();
+  final planRepository = ref.watch(planRepositoryProvider);
   return planRepository.getPlan(skipCache: forceRefresh);
 }
 
