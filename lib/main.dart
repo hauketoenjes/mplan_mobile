@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:mplan_mobile/api/repositories/plan_repository.dart';
 import 'package:mplan_mobile/gen/assets.gen.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/pages/personal_plan_page.dart';
 import 'package:mplan_mobile/pages/plan_page.dart';
 import 'package:mplan_mobile/pages/settings_page.dart';
-import 'package:mplan_mobile/providers/misc_provider/misc_provider.dart';
 import 'package:mplan_mobile/theme.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,6 +33,9 @@ Future<void> main() async {
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
 
+  // Get package info
+  final packageInfo = await PackageInfo.fromPlatform();
+
   await initializeDateFormatting();
   timeago.setLocaleMessages('de', timeago.DeMessages());
 
@@ -42,18 +45,12 @@ Future<void> main() async {
   // SharedPreferences
   final sharedPreferences = await SharedPreferences.getInstance();
 
-  // Get package info
-  final packageInfo = await PackageInfo.fromPlatform();
+  // Dependency injection
+  GetIt.I.registerSingleton<PackageInfo>(packageInfo);
+  GetIt.I.registerSingleton<PlanRepository>(PlanRepository());
+  GetIt.I.registerSingleton<SharedPreferences>(sharedPreferences);
 
-  runApp(
-    ProviderScope(
-      overrides: [
-        sharedPreferencesProvider.overrideWithValue(sharedPreferences),
-        packageInfoProvider.overrideWithValue(packageInfo),
-      ],
-      child: const MyApp(),
-    ),
-  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -71,21 +68,21 @@ class _MyAppState extends State<MyApp> {
     return [
       (
         destination: NavigationDestination(
-          icon: const Icon(Icons.calendar_month_outlined),
+          icon: const Icon(Icons.list),
           label: context.l10n.planPage_title,
         ),
         widget: const PlanPage()
       ),
       (
         destination: NavigationDestination(
-          icon: const Icon(Icons.person_outline_outlined),
+          icon: const Icon(Icons.person),
           label: context.l10n.perosnalPlanPage_title,
         ),
         widget: const PersonalPlanPage()
       ),
       (
         destination: NavigationDestination(
-          icon: const Icon(Icons.settings_outlined),
+          icon: const Icon(Icons.settings),
           label: context.l10n.settingsPage_title,
         ),
         widget: const SettingsPage()
@@ -104,7 +101,7 @@ class _MyAppState extends State<MyApp> {
       theme: getTheme(Brightness.light),
       darkTheme: getTheme(Brightness.dark),
       localizationsDelegates: const [
-        AppLocalizations.delegate,
+        AppLocalizations.delegate, // Add this line
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
