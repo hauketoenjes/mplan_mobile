@@ -8,9 +8,11 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'plan_provider.g.dart';
 
+/// The [Provider] for the [PlanRepository].
 @riverpod
 PlanRepository planRepository(PlanRepositoryRef ref) => PlanRepository();
 
+/// Provider to fetch the plan.
 @riverpod
 Future<List<PlanItem>> fetchPlan(
   FetchPlanRef ref, {
