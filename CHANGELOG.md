@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.2.3...v1.3.0) (2023-10-28)
+
+
+### Features
+
+* Improvements ([#31](https://github.com/hauketoenjes/mplan_mobile/issues/31)) ([71cbe77](https://github.com/hauketoenjes/mplan_mobile/commit/71cbe777416471ea8a98f1366a05e41becb50add))
+
 ## [1.2.3](https://github.com/hauketoenjes/mplan_mobile/compare/v1.2.2...v1.2.3) (2023-10-13)
 
 
