@@ -40,5 +40,12 @@
   "settingsPage_about": "Über diese App",
   "settingsPage_aboutDescription": "Informationen über diese App. Lizenzen, Versionsnummer, usw.",
   "settingsPage_aboutDialog": "App zum Anzeigen des Messdienerplans der Messdiener St. Vitus Visbek.",
-  "general_addToCalendar": "Zum Kalender hinzufügen"
+  "settingsPage_dataPrivacy": "Datenschutz",
+  "settingsPage_dataPrivacyDescription": "Informationen über die Verwendung deiner Daten.",
+  "settingsPage_plan": "Plan öffnen",
+  "settingsPage_planDescription": "Öffne den Plan auf der Website.",
+  "planCard_noLocation": "Kein Ort",
+  "planCard_noInformation": "Keine Info",
+  "general_addToCalendar": "Zum Kalender hinzufügen",
+  "general_networkError": "Beim Laden der Daten ist ein Fehler aufgetreten. Bitte versuche es später erneut."
 }

@@ -1,74 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:mplan_mobile/api/models/plan_item.dart';
-import 'package:mplan_mobile/api/repositories/plan_repository.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
-import 'package:mplan_mobile/widgets/plan_item_card.dart';
-import 'package:mplan_mobile/widgets/show_later.dart';
+import 'package:mplan_mobile/providers/plan_provider/plan_provider.dart';
+import 'package:mplan_mobile/widgets/layout/layout.dart';
+import 'package:mplan_mobile/widgets/plan_item/plan_item_card.dart';
+import 'package:mplan_mobile/widgets/plan_item/plan_item_list.dart';
+import 'package:mplan_mobile/widgets/utils/network_error.dart';
 
-class PlanPage extends StatefulWidget {
+class PlanPage extends ConsumerWidget {
   const PlanPage({super.key});
 
   @override
-  State<PlanPage> createState() => _PlanPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final plan = ref.watch(fetchPlanProvider());
 
-class _PlanPageState extends State<PlanPage> {
-  final PlanRepository _planRepository = GetIt.I<PlanRepository>();
-  late Future<List<PlanItem>> _plan;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _plan = _planRepository.getPlan();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Text(
-              context.l10n.planPage_title,
-              style: Theme.of(context).textTheme.displaySmall,
-            ),
+    return Layout(
+      pageTitle: context.l10n.planPage_title,
+      child: switch (plan) {
+        AsyncData(:final value) => PlanItemList(
+            items: value,
+            itemBuilder: (item) => PlanItemCard(item: item),
+            onRefresh: () =>
+                ref.refresh(fetchPlanProvider(forceRefresh: true).future),
           ),
-          const SizedBox(height: 16),
-          Expanded(
-            child: FutureBuilder<List<PlanItem>>(
-              future: _plan,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return Scrollbar(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: ListView.builder(
-                        itemCount: snapshot.data!.length,
-                        itemBuilder: (context, index) {
-                          final item = snapshot.data![index];
-                          return PlanItemCard(item: item);
-                        },
-                      ),
-                    ),
-                  );
-                } else if (snapshot.hasError) {
-                  return Text('${snapshot.error}');
-                }
-
-                return const ShowLater(
-                  duration: Duration(milliseconds: 100),
-                  child: Center(child: CircularProgressIndicator()),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
+        AsyncError() => const Center(child: NetworkError()),
+        _ => const Center(child: CircularProgressIndicator()),
+      },
     );
   }
 }
