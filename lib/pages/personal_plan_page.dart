@@ -55,7 +55,7 @@ class PersonalPlanPage extends ConsumerWidget {
         _ => null,
       },
       child: switch (filteredPlan) {
-        AsyncData(:final value) => value.isEmpty
+        AsyncData(:final value) => value.isEmpty && currentName.isNotEmpty
             ? const Center(
                 child: EmptyList(),
               )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/providers/personal_name_provider/personal_name_provider.dart';
@@ -37,6 +38,7 @@ class _NameTextFieldState extends ConsumerState<NameTextField> {
       ),
       controller: _controller,
       onChanged: (value) => ref.read(nameProvider.notifier).state = value,
+      onSubmitted: (value) => HapticFeedback.mediumImpact(),
       style: Theme.of(context).textTheme.displaySmall?.copyWith(
             fontWeight: FontWeight.bold,
             decoration: TextDecoration.underline,
