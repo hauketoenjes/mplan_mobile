@@ -124,6 +124,7 @@ class _MyAppState extends State<MyApp> {
                 setState(() {
                   _selectedDestination = index;
                 });
+                HapticFeedback.selectionClick();
               },
               selectedIndex: _selectedDestination,
               destinations: destinations.map((e) => e.destination).toList(),
