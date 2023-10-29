@@ -11,6 +11,7 @@ import 'package:mplan_mobile/widgets/layout/layout.dart';
 import 'package:mplan_mobile/widgets/layout/personal_plan/name_text_field.dart';
 import 'package:mplan_mobile/widgets/plan_item/plan_item_card.dart';
 import 'package:mplan_mobile/widgets/plan_item/plan_item_list.dart';
+import 'package:mplan_mobile/widgets/utils/empty_list.dart';
 import 'package:mplan_mobile/widgets/utils/network_error.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -54,19 +55,23 @@ class PersonalPlanPage extends ConsumerWidget {
         _ => null,
       },
       child: switch (filteredPlan) {
-        AsyncData(:final value) => PlanItemList(
-            items: value,
-            itemBuilder: (item) => PlanItemCard(
-              item: item,
-              highlightedName: currentName,
-              onAddToCalendar: () {
-                final event = getEvent(item, currentName, context);
-                unawaited(Add2Calendar.addEvent2Cal(event));
-              },
-            ),
-            onRefresh: () =>
-                ref.refresh(fetchPlanProvider(forceRefresh: true).future),
-          ),
+        AsyncData(:final value) => value.isEmpty
+            ? const Center(
+                child: EmptyList(),
+              )
+            : PlanItemList(
+                items: value,
+                itemBuilder: (item) => PlanItemCard(
+                  item: item,
+                  highlightedName: currentName,
+                  onAddToCalendar: () {
+                    final event = getEvent(item, currentName, context);
+                    unawaited(Add2Calendar.addEvent2Cal(event));
+                  },
+                ),
+                onRefresh: () =>
+                    ref.refresh(fetchPlanProvider(forceRefresh: true).future),
+              ),
         AsyncError() => const Center(child: NetworkError()),
         _ => const Center(child: CircularProgressIndicator()),
       },

@@ -47,5 +47,6 @@
   "planCard_noLocation": "Kein Ort",
   "planCard_noInformation": "Keine Info",
   "general_addToCalendar": "Zum Kalender hinzufügen",
-  "general_networkError": "Beim Laden der Daten ist ein Fehler aufgetreten. Bitte versuche es später erneut."
+  "general_networkError": "Beim Laden der Daten ist ein Fehler aufgetreten. Bitte versuche es später erneut.",
+  "general_emptyList": "Keine Einträge"
 }
