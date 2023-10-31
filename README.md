@@ -1,4 +1,4 @@
-# Messdienerplan (mplan_mobile)
+# Messdienerplan
 
 [![Codemagic build status](https://api.codemagic.io/apps/65219eeb2a151fc4612f5f8e/65219eeb2a151fc4612f5f8d/status_badge.svg)](https://codemagic.io/apps/65219eeb2a151fc4612f5f8e/65219eeb2a151fc4612f5f8d/latest_build)
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
@@ -15,7 +15,7 @@ The following functionalities are implemented:
 
    - Based on the available plan, the user can enter a name to get a personalized plan. In this view, the dates can be added to the calendar of the device.
 
-   ## Links
+## Links
 
-   - [Messdiener St. Vitus Visbek](https://messdiener-visbek.de)
-   - [Dienstplan | Messdiener St. Vitus Visbek](https://messdiener-visbek.de/plan)
+- [Messdiener St. Vitus Visbek](https://messdiener-visbek.de)
+- [Dienstplan | Messdiener St. Vitus Visbek](https://messdiener-visbek.de/plan)
