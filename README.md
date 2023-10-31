@@ -1,4 +1,4 @@
-# Messdienerplan (mplan_mobile)
+# Messdienerplan
 
 [![Codemagic build status](https://api.codemagic.io/apps/65219eeb2a151fc4612f5f8e/65219eeb2a151fc4612f5f8d/status_badge.svg)](https://codemagic.io/apps/65219eeb2a151fc4612f5f8e/65219eeb2a151fc4612f5f8d/latest_build)
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
@@ -15,7 +15,16 @@ The following functionalities are implemented:
 
    - Based on the available plan, the user can enter a name to get a personalized plan. In this view, the dates can be added to the calendar of the device.
 
-   ## Links
+## App Store and Play Store
 
-   - [Messdiener St. Vitus Visbek](https://messdiener-visbek.de)
-   - [Dienstplan | Messdiener St. Vitus Visbek](https://messdiener-visbek.de/plan)
+The app is built with [Codemagic](https://codemagic.io) and published to the App Store and Play Store automatically on release. The app is available for iOS and Android.
+
+## Download
+
+[<img src="./docs/assets/google-play-badge.png" alt="Play Store Badge" style="width:225px;"/>](https://play.google.com/store/apps/details?id=dev.htoenjes.mplan_mobile)
+[<img src="./docs/assets/app-store-badge.svg" alt="App Store Badge" style="width:200px;margin-left:12px"/>](https://apps.apple.com/us/app/messdienerplan/id6468915664)
+
+## Links
+
+- [Messdiener St. Vitus Visbek](https://messdiener-visbek.de)
+- [Dienstplan | Messdiener St. Vitus Visbek](https://messdiener-visbek.de/plan)
