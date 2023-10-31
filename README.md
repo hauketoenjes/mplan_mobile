@@ -15,6 +15,15 @@ The following functionalities are implemented:
 
    - Based on the available plan, the user can enter a name to get a personalized plan. In this view, the dates can be added to the calendar of the device.
 
+## App Store and Play Store
+
+The app is built with [Codemagic](https://codemagic.io) and published to the App Store and Play Store automatically on release. The app is available for iOS and Android.
+
+## Download
+
+[<img src="./docs/assets/google-play-badge.png" alt="Play Store Badge" style="width:225px;"/>](https://play.google.com/store/apps/details?id=dev.htoenjes.mplan_mobile)
+[<img src="./docs/assets/app-store-badge.svg" alt="App Store Badge" style="width:200px;margin-left:12px"/>](https://apps.apple.com/us/app/messdienerplan/id6468915664)
+
 ## Links
 
 - [Messdiener St. Vitus Visbek](https://messdiener-visbek.de)
