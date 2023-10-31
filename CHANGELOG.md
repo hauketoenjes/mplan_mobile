@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.3.0...v1.4.0) (2023-10-29)
+
+
+### Features
+
+* Add empty list info, change API URL ([#33](https://github.com/hauketoenjes/mplan_mobile/issues/33)) ([6715c75](https://github.com/hauketoenjes/mplan_mobile/commit/6715c75382fa409f2583ce48fec6fd0dfd0e1577))
+* Add haptic feedback ([#35](https://github.com/hauketoenjes/mplan_mobile/issues/35)) ([eb62ebb](https://github.com/hauketoenjes/mplan_mobile/commit/eb62ebb8f7b3c01bd5e318b6b8925db29a61f033))
+
 ## [1.3.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.2.3...v1.3.0) (2023-10-28)
 
 
