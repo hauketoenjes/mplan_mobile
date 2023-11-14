@@ -8,6 +8,7 @@ part of 'plan_item.dart';
 
 _$PlanItemImpl _$$PlanItemImplFromJson(Map<String, dynamic> json) =>
     _$PlanItemImpl(
+      id: json['id'] as String,
       date: DateTime.parse(json['date'] as String),
       location: json['location'] as String?,
       extra: json['extra'] as String?,
@@ -20,6 +21,7 @@ _$PlanItemImpl _$$PlanItemImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$PlanItemImplToJson(_$PlanItemImpl instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'date': instance.date.toIso8601String(),
       'location': instance.location,
       'extra': instance.extra,

@@ -20,6 +20,7 @@ PlanItem _$PlanItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PlanItem {
+  String get id => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   String? get location => throw _privateConstructorUsedError;
   String? get extra => throw _privateConstructorUsedError;
@@ -38,7 +39,8 @@ abstract class $PlanItemCopyWith<$Res> {
       _$PlanItemCopyWithImpl<$Res, PlanItem>;
   @useResult
   $Res call(
-      {DateTime date,
+      {String id,
+      DateTime date,
       String? location,
       String? extra,
       bool? canceled,
@@ -58,6 +60,7 @@ class _$PlanItemCopyWithImpl<$Res, $Val extends PlanItem>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? date = null,
     Object? location = freezed,
     Object? extra = freezed,
@@ -65,6 +68,10 @@ class _$PlanItemCopyWithImpl<$Res, $Val extends PlanItem>
     Object? acolytes = freezed,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -98,7 +105,8 @@ abstract class _$$PlanItemImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {DateTime date,
+      {String id,
+      DateTime date,
       String? location,
       String? extra,
       bool? canceled,
@@ -116,6 +124,7 @@ class __$$PlanItemImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? date = null,
     Object? location = freezed,
     Object? extra = freezed,
@@ -123,6 +132,10 @@ class __$$PlanItemImplCopyWithImpl<$Res>
     Object? acolytes = freezed,
   }) {
     return _then(_$PlanItemImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -151,7 +164,8 @@ class __$$PlanItemImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PlanItemImpl implements _PlanItem {
   const _$PlanItemImpl(
-      {required this.date,
+      {required this.id,
+      required this.date,
       required this.location,
       required this.extra,
       required this.canceled,
@@ -161,6 +175,8 @@ class _$PlanItemImpl implements _PlanItem {
   factory _$PlanItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlanItemImplFromJson(json);
 
+  @override
+  final String id;
   @override
   final DateTime date;
   @override
@@ -181,7 +197,7 @@ class _$PlanItemImpl implements _PlanItem {
 
   @override
   String toString() {
-    return 'PlanItem(date: $date, location: $location, extra: $extra, canceled: $canceled, acolytes: $acolytes)';
+    return 'PlanItem(id: $id, date: $date, location: $location, extra: $extra, canceled: $canceled, acolytes: $acolytes)';
   }
 
   @override
@@ -189,6 +205,7 @@ class _$PlanItemImpl implements _PlanItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PlanItemImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.location, location) ||
                 other.location == location) &&
@@ -200,8 +217,8 @@ class _$PlanItemImpl implements _PlanItem {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, date, location, extra, canceled,
-      const DeepCollectionEquality().hash(_acolytes));
+  int get hashCode => Object.hash(runtimeType, id, date, location, extra,
+      canceled, const DeepCollectionEquality().hash(_acolytes));
 
   @JsonKey(ignore: true)
   @override
@@ -219,7 +236,8 @@ class _$PlanItemImpl implements _PlanItem {
 
 abstract class _PlanItem implements PlanItem {
   const factory _PlanItem(
-      {required final DateTime date,
+      {required final String id,
+      required final DateTime date,
       required final String? location,
       required final String? extra,
       required final bool? canceled,
@@ -228,6 +246,8 @@ abstract class _PlanItem implements PlanItem {
   factory _PlanItem.fromJson(Map<String, dynamic> json) =
       _$PlanItemImpl.fromJson;
 
+  @override
+  String get id;
   @override
   DateTime get date;
   @override

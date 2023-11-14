@@ -11,6 +11,7 @@ import 'package:mplan_mobile/widgets/layout/layout.dart';
 import 'package:mplan_mobile/widgets/layout/personal_plan/name_text_field.dart';
 import 'package:mplan_mobile/widgets/plan_item/plan_item_card.dart';
 import 'package:mplan_mobile/widgets/plan_item/plan_item_list.dart';
+import 'package:mplan_mobile/widgets/popups/reminder_bottom_sheet.dart';
 import 'package:mplan_mobile/widgets/utils/empty_list.dart';
 import 'package:mplan_mobile/widgets/utils/network_error.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -67,6 +68,14 @@ class PersonalPlanPage extends ConsumerWidget {
                   onAddToCalendar: () {
                     final event = getEvent(item, currentName, context);
                     unawaited(Add2Calendar.addEvent2Cal(event));
+                  },
+                  onSetReminder: () {
+                    showModalBottomSheet<Duration>(
+                      context: context,
+                      builder: (context) {
+                        return const ReminderBottomSheet();
+                      },
+                    );
                   },
                 ),
                 onRefresh: () =>

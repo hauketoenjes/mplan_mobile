@@ -48,5 +48,12 @@
   "planCard_noInformation": "Keine Info",
   "general_addToCalendar": "Zum Kalender hinzufügen",
   "general_networkError": "Beim Laden der Daten ist ein Fehler aufgetreten. Bitte versuche es später erneut.",
-  "general_emptyList": "Keine Einträge"
+  "general_emptyList": "Keine Einträge",
+  "reminder_setReminder": "Erinnerung einstellen",
+  "reminder_description": "Wähle aus, wann du erinnert werden möchtest. Es kann nur eine Erinnerung pro Messe eingestellt werden.",
+  "reminder_1week": "Eine Woche vorher",
+  "reminder_1day": "Ein Tag vorher",
+  "reminder_12hours": "Zwölf Stunden vorher",
+  "reminder_1hour": "Eine Stunde vorher",
+  "reminder_remove": "Erinnerung entfernen"
 }

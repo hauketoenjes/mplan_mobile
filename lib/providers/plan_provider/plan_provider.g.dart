@@ -8,7 +8,9 @@ part of 'plan_provider.dart';
 
 String _$planRepositoryHash() => r'd8f4f568d8d891c6bfb56f0b585caae6ee1baf94';
 
-/// See also [planRepository].
+/// The [Provider] for the [PlanRepository].
+///
+/// Copied from [planRepository].
 @ProviderFor(planRepository)
 final planRepositoryProvider = AutoDisposeProvider<PlanRepository>.internal(
   planRepository,
@@ -44,16 +46,24 @@ class _SystemHash {
   }
 }
 
-/// See also [fetchPlan].
+/// Provider to fetch the plan.
+///
+/// Copied from [fetchPlan].
 @ProviderFor(fetchPlan)
 const fetchPlanProvider = FetchPlanFamily();
 
-/// See also [fetchPlan].
+/// Provider to fetch the plan.
+///
+/// Copied from [fetchPlan].
 class FetchPlanFamily extends Family<AsyncValue<List<PlanItem>>> {
-  /// See also [fetchPlan].
+  /// Provider to fetch the plan.
+  ///
+  /// Copied from [fetchPlan].
   const FetchPlanFamily();
 
-  /// See also [fetchPlan].
+  /// Provider to fetch the plan.
+  ///
+  /// Copied from [fetchPlan].
   FetchPlanProvider call({
     bool forceRefresh = false,
   }) {
@@ -86,9 +96,13 @@ class FetchPlanFamily extends Family<AsyncValue<List<PlanItem>>> {
   String? get name => r'fetchPlanProvider';
 }
 
-/// See also [fetchPlan].
+/// Provider to fetch the plan.
+///
+/// Copied from [fetchPlan].
 class FetchPlanProvider extends AutoDisposeFutureProvider<List<PlanItem>> {
-  /// See also [fetchPlan].
+  /// Provider to fetch the plan.
+  ///
+  /// Copied from [fetchPlan].
   FetchPlanProvider({
     bool forceRefresh = false,
   }) : this._internal(
