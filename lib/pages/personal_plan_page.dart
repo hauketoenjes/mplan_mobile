@@ -68,6 +68,7 @@ class PersonalPlanPage extends ConsumerWidget {
                     final event = getEvent(item, currentName, context);
                     unawaited(Add2Calendar.addEvent2Cal(event));
                   },
+                  canSetReminder: true,
                 ),
                 onRefresh: () =>
                     ref.refresh(fetchPlanProvider(forceRefresh: true).future),

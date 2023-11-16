@@ -6,6 +6,7 @@ part 'plan_item.g.dart';
 @freezed
 class PlanItem with _$PlanItem {
   const factory PlanItem({
+    required String id,
     required DateTime date,
     required String? location,
     required String? extra,

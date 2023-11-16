@@ -44,9 +44,38 @@
   "settingsPage_dataPrivacyDescription": "Informationen über die Verwendung deiner Daten.",
   "settingsPage_plan": "Plan öffnen",
   "settingsPage_planDescription": "Öffne den Plan auf der Website.",
+  "settingsPage_cancelAllNotifcations": "Alle Erinnerungen löschen",
+  "settingsPage_cancelAllNotifcationsDescription": "Alle eingestellen Erinnerungen werden gelöscht ({count})",
+  "@settingsPage_cancelAllNotifcationsDescription": {
+    "placeholders": {
+      "count": {
+        "type": "num",
+        "format": "compact"
+      }
+    }
+  },
   "planCard_noLocation": "Kein Ort",
   "planCard_noInformation": "Keine Info",
   "general_addToCalendar": "Zum Kalender hinzufügen",
   "general_networkError": "Beim Laden der Daten ist ein Fehler aufgetreten. Bitte versuche es später erneut.",
-  "general_emptyList": "Keine Einträge"
+  "general_emptyList": "Keine Einträge",
+  "reminder_setReminder": "Erinnerung einstellen",
+  "reminder_description": "Wähle aus, wann du erinnert werden möchtest. Es kann nur eine Erinnerung pro Messe eingestellt werden.",
+  "reminder_1week": "Eine Woche vorher",
+  "reminder_1day": "Einen Tag vorher",
+  "reminder_12hours": "Zwölf Stunden vorher",
+  "reminder_1hour": "Eine Stunde vorher",
+  "reminder_remove": "Erinnerung entfernen",
+  "reminder_notificationSubtitle": "Erinnerung",
+  "reminder_notificationBody": "Du musst am {date} um {time} Messe dienen.",
+  "@reminder_notificationBody": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  }
 }

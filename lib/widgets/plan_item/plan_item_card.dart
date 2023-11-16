@@ -5,6 +5,7 @@ import 'package:mplan_mobile/misc/list_extensions.dart';
 import 'package:mplan_mobile/widgets/plan_item/widgets/date_text.dart';
 import 'package:mplan_mobile/widgets/plan_item/widgets/grouped_acolytes.dart';
 import 'package:mplan_mobile/widgets/plan_item/widgets/information_row.dart';
+import 'package:mplan_mobile/widgets/plan_item/widgets/reminder_button.dart';
 import 'package:mplan_mobile/widgets/plan_item/widgets/wrapping_card.dart';
 
 class PlanItemCard extends StatelessWidget {
@@ -13,11 +14,13 @@ class PlanItemCard extends StatelessWidget {
     super.key,
     this.highlightedName,
     this.onAddToCalendar,
+    this.canSetReminder = false,
   });
 
   final PlanItem item;
   final String? highlightedName;
   final void Function()? onAddToCalendar;
+  final bool canSetReminder;
 
   @override
   Widget build(BuildContext context) {
@@ -36,19 +39,23 @@ class PlanItemCard extends StatelessWidget {
           acolytes: item.acolytes ?? {},
           highlightedName: highlightedName,
         ),
-        if (onAddToCalendar != null)
+        if (onAddToCalendar != null || canSetReminder)
           Wrap(
-            spacing: 16,
-            runSpacing: 16,
+            spacing: 4,
+            runSpacing: 4,
             alignment: WrapAlignment.end,
             children: [
-              TextButton.icon(
-                icon: const Icon(Icons.edit_calendar),
-                onPressed: onAddToCalendar,
-                label: Text(
-                  context.l10n.general_addToCalendar,
+              if (onAddToCalendar != null)
+                IconButton(
+                  onPressed: onAddToCalendar,
+                  tooltip: context.l10n.general_addToCalendar,
+                  color: Theme.of(context).colorScheme.primary,
+                  icon: const Icon(Icons.edit_calendar_outlined),
                 ),
-              ),
+              if (canSetReminder)
+                ReminderButton(
+                  item: item,
+                ),
             ],
           ),
       ].genericJoin(
