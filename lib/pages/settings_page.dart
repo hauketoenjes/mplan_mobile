@@ -4,6 +4,7 @@ import 'package:mplan_mobile/misc/list_extensions.dart';
 import 'package:mplan_mobile/widgets/layout/layout.dart';
 import 'package:mplan_mobile/widgets/settings/about_tile.dart';
 import 'package:mplan_mobile/widgets/settings/data_privacy_tile.dart';
+import 'package:mplan_mobile/widgets/settings/notifications_tile.dart';
 import 'package:mplan_mobile/widgets/settings/plan_tile.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -18,6 +19,7 @@ class SettingsPage extends StatelessWidget {
           const DataPrivacyTile(),
           const PlanTile(),
           const AboutTile(),
+          const NotificationTile(),
         ].genericJoin(
           const SizedBox(height: 8),
         ),

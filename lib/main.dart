@@ -58,15 +58,24 @@ Future<void> main() async {
     initializationSettings,
   );
 
+  // Request notification permissions on Android
+  await flutterLocalNotificationsPlugin
+      .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin>()
+      ?.requestNotificationsPermission();
+
   // Timezone. Initialize with Europe/Berlin as local timezone
   tz.initializeTimeZones();
   tz.setLocalLocation(tz.getLocation('Europe/Berlin'));
 
+  // Run the app and override the providers with the values acquired above
   runApp(
     ProviderScope(
       overrides: [
         sharedPreferencesProvider.overrideWithValue(sharedPreferences),
         packageInfoProvider.overrideWithValue(packageInfo),
+        localNotificationsPluginProvider
+            .overrideWithValue(flutterLocalNotificationsPlugin),
       ],
       child: const MyApp(),
     ),

@@ -5,6 +5,7 @@ import 'package:mplan_mobile/misc/list_extensions.dart';
 import 'package:mplan_mobile/widgets/plan_item/widgets/date_text.dart';
 import 'package:mplan_mobile/widgets/plan_item/widgets/grouped_acolytes.dart';
 import 'package:mplan_mobile/widgets/plan_item/widgets/information_row.dart';
+import 'package:mplan_mobile/widgets/plan_item/widgets/reminder_button.dart';
 import 'package:mplan_mobile/widgets/plan_item/widgets/wrapping_card.dart';
 
 class PlanItemCard extends StatelessWidget {
@@ -13,15 +14,13 @@ class PlanItemCard extends StatelessWidget {
     super.key,
     this.highlightedName,
     this.onAddToCalendar,
-    this.onSetReminder,
-    this.onRemoveReminder,
+    this.canSetReminder = false,
   });
 
   final PlanItem item;
   final String? highlightedName;
   final void Function()? onAddToCalendar;
-  final void Function()? onSetReminder;
-  final void Function()? onRemoveReminder;
+  final bool canSetReminder;
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +39,7 @@ class PlanItemCard extends StatelessWidget {
           acolytes: item.acolytes ?? {},
           highlightedName: highlightedName,
         ),
-        if (onAddToCalendar != null ||
-            onSetReminder != null ||
-            onRemoveReminder != null)
+        if (onAddToCalendar != null || canSetReminder)
           Wrap(
             spacing: 4,
             runSpacing: 4,
@@ -53,21 +50,11 @@ class PlanItemCard extends StatelessWidget {
                   onPressed: onAddToCalendar,
                   tooltip: context.l10n.general_addToCalendar,
                   color: Theme.of(context).colorScheme.primary,
-                  icon: const Icon(Icons.edit_calendar),
+                  icon: const Icon(Icons.edit_calendar_outlined),
                 ),
-              if (onRemoveReminder != null)
-                TextButton.icon(
-                  onPressed: null,
-                  icon: const Icon(Icons.notifications_off),
-                  label: Text(context.l10n.reminder_remove),
-                ),
-              if (onSetReminder != null)
-                TextButton.icon(
-                  icon: const Icon(Icons.notification_add),
-                  onPressed: onSetReminder,
-                  label: Text(
-                    context.l10n.reminder_setReminder,
-                  ),
+              if (canSetReminder)
+                ReminderButton(
+                  item: item,
                 ),
             ],
           ),
