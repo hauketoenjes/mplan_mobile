@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.4.0...v1.5.0) (2023-11-16)
+
+
+### Features
+
+* Add Notifications for masses ([#38](https://github.com/hauketoenjes/mplan_mobile/issues/38)) ([af6c0f0](https://github.com/hauketoenjes/mplan_mobile/commit/af6c0f0fed9bbdba734e5b5bf3aeef21e067073c))
+
 ## [1.4.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.3.0...v1.4.0) (2023-10-29)
 
 
