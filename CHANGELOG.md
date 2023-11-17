@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.5.0...v1.6.0) (2023-11-17)
+
+
+### Features
+
+* Refresh plan and notifications on app lifecycle change ([#40](https://github.com/hauketoenjes/mplan_mobile/issues/40)) ([415bfca](https://github.com/hauketoenjes/mplan_mobile/commit/415bfcaaf5d246caa4478d125c53a58805f379c6))
+
 ## [1.5.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.4.0...v1.5.0) (2023-11-16)
 
 
