@@ -43,8 +43,8 @@ class _ReminderButtonState extends ConsumerState<ReminderButton> {
                   final appName = ref.read(packageInfoProvider).appName;
                   final subtitle = context.l10n.reminder_notificationSubtitle;
                   final body = context.l10n.reminder_notificationBody(
-                    dateFormat.format(widget.item.date),
-                    timeFormat.format(widget.item.date),
+                    dateFormat.format(widget.item.date.toLocal()),
+                    timeFormat.format(widget.item.date.toLocal()),
                   );
 
                   // Show the bottom sheet and wait for the result
