@@ -14,6 +14,8 @@ import 'package:mplan_mobile/pages/personal_plan_page.dart';
 import 'package:mplan_mobile/pages/plan_page.dart';
 import 'package:mplan_mobile/pages/settings_page.dart';
 import 'package:mplan_mobile/providers/misc_provider/misc_provider.dart';
+import 'package:mplan_mobile/providers/notification_notifier/notification_notifier.dart';
+import 'package:mplan_mobile/providers/plan_provider/plan_provider.dart';
 import 'package:mplan_mobile/theme.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -82,15 +84,40 @@ Future<void> main() async {
   );
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends ConsumerStatefulWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  ConsumerState<MyApp> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      // Invalidate the providers to refetch the data
+      // when the app is resumed
+      ref
+        ..invalidate(notificationNotifierProvider)
+        ..invalidate(fetchPlanProvider);
+    }
+    super.didChangeAppLifecycleState(state);
+  }
+
   var _selectedDestination = 1;
+
   List<({NavigationDestination destination, Widget widget})> getDestinations(
     BuildContext context,
   ) {
