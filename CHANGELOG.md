@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/hauketoenjes/mplan_mobile/compare/v1.6.0...v1.6.1) (2023-11-30)
+
+
+### Bug Fixes
+
+* Use Europe/Berlin for dates everywhere ([#43](https://github.com/hauketoenjes/mplan_mobile/issues/43)) ([708c0eb](https://github.com/hauketoenjes/mplan_mobile/commit/708c0ebdec852f91a89ee56704d714d1dd4b0004)), closes [#42](https://github.com/hauketoenjes/mplan_mobile/issues/42)
+
 ## [1.6.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.5.0...v1.6.0) (2023-11-17)
 
 
