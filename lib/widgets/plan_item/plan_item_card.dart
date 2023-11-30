@@ -26,7 +26,7 @@ class PlanItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return WrappingCard(
       children: <Widget>[
-        DateText(dateTime: item.date.toLocal()),
+        DateText(dateTime: item.date),
         InformationRow(
           icon: Icons.location_on,
           text: item.location ?? context.l10n.planCard_noLocation,

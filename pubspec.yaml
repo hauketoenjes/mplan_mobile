@@ -25,7 +25,7 @@ dependencies:
   collection: ^1.17.2
   flutter_native_splash: ^2.3.3
   json_annotation: ^4.8.1
-  package_info_plus: ^4.1.0
+  package_info_plus: ^5.0.1
   add_2_calendar:
     git:
       url: https://github.com/ja2375/add_2_calendar
@@ -39,7 +39,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
   build_runner: ^2.4.6
   freezed: ^2.4.3
   json_serializable: ^6.7.1
