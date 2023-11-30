@@ -1,8 +1,8 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:mplan_mobile/misc/datetime_extensions.dart';
 import 'package:mplan_mobile/providers/misc_provider/misc_provider.dart';
 import 'package:mplan_mobile/providers/notification_notifier/notification_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:timezone/timezone.dart' as tz;
 
 part 'notification_notifier.g.dart';
 
@@ -65,8 +65,7 @@ class NotificationNotifier extends _$NotificationNotifier {
       stringToNotificationId(notification.itemId),
       notification.appName,
       notification.notificationBody,
-      tz.TZDateTime.from(notification.date, tz.local)
-          .subtract(notification.notifyBefore),
+      notification.date.toLocalTz().subtract(notification.notifyBefore),
       notificationDetails,
       uiLocalNotificationDateInterpretation:
           UILocalNotificationDateInterpretation.absoluteTime,

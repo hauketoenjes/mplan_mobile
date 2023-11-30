@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
+import 'package:mplan_mobile/misc/datetime_extensions.dart';
 import 'package:mplan_mobile/providers/misc_provider/misc_provider.dart';
 import 'package:mplan_mobile/providers/notification_notifier/notification_model.dart';
 import 'package:mplan_mobile/providers/notification_notifier/notification_notifier.dart';
@@ -43,8 +44,8 @@ class _ReminderButtonState extends ConsumerState<ReminderButton> {
                   final appName = ref.read(packageInfoProvider).appName;
                   final subtitle = context.l10n.reminder_notificationSubtitle;
                   final body = context.l10n.reminder_notificationBody(
-                    dateFormat.format(widget.item.date.toLocal()),
-                    timeFormat.format(widget.item.date.toLocal()),
+                    dateFormat.format(widget.item.date.toLocalTz()),
+                    timeFormat.format(widget.item.date.toLocalTz()),
                   );
 
                   // Show the bottom sheet and wait for the result
