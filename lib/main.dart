@@ -16,6 +16,7 @@ import 'package:mplan_mobile/pages/settings_page.dart';
 import 'package:mplan_mobile/providers/misc_provider/misc_provider.dart';
 import 'package:mplan_mobile/providers/notification_notifier/notification_notifier.dart';
 import 'package:mplan_mobile/providers/plan_provider/plan_provider.dart';
+import 'package:mplan_mobile/providers/timeofday_provider/timeofday_provider.dart';
 import 'package:mplan_mobile/theme.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -111,7 +112,8 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
       // when the app is resumed
       ref
         ..invalidate(notificationNotifierProvider)
-        ..invalidate(fetchPlanProvider);
+        ..invalidate(fetchPlanProvider)
+        ..invalidate(getTimeOfDayProvider);
     }
     super.didChangeAppLifecycleState(state);
   }

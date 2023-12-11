@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/misc/list_extensions.dart';
@@ -61,6 +62,6 @@ class PlanItemCard extends StatelessWidget {
       ].genericJoin(
         const SizedBox(height: 8),
       ),
-    );
+    ).animate().fadeIn();
   }
 }

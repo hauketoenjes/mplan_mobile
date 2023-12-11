@@ -7,6 +7,7 @@ import 'package:mplan_mobile/api/models/plan_item.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/providers/personal_name_provider/personal_name_provider.dart';
 import 'package:mplan_mobile/providers/plan_provider/plan_provider.dart';
+import 'package:mplan_mobile/providers/timeofday_provider/timeofday_provider.dart';
 import 'package:mplan_mobile/widgets/layout/layout.dart';
 import 'package:mplan_mobile/widgets/layout/personal_plan/name_text_field.dart';
 import 'package:mplan_mobile/widgets/plan_item/plan_item_card.dart';
@@ -40,13 +41,19 @@ class PersonalPlanPage extends ConsumerWidget {
 
     final currentName = ref.watch(nameProvider);
     final plan = ref.watch(fetchPlanProvider());
+    final timeOfDay = ref.watch(getTimeOfDayProvider);
 
     final filteredPlan = plan.whenData(
       (value) => filterPlan(value, currentName),
     );
 
     return Layout(
-      pageTitle: context.l10n.personalPlanPage_greeting,
+      pageTitle: switch (timeOfDay) {
+        TimeOfDayEnum.morning => context.l10n.personalPlanPage_greeting_morning,
+        TimeOfDayEnum.afternoon =>
+          context.l10n.personalPlanPage_greeting_afternoon,
+        TimeOfDayEnum.evening => context.l10n.personalPlanPage_greeting_evening,
+      },
       subtitle: const NameTextField(),
       informativeText: switch (filteredPlan) {
         AsyncData(:final value) => currentName.isEmpty

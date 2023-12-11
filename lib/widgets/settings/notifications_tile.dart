@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/providers/notification_notifier/notification_notifier.dart';
 
-class NotificationTile extends ConsumerWidget {
-  const NotificationTile({super.key});
+class NotificationsTile extends ConsumerWidget {
+  const NotificationsTile({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
