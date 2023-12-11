@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.6.1...v1.7.0) (2023-12-11)
+
+
+### Features
+
+* UI and UX improvements ([#45](https://github.com/hauketoenjes/mplan_mobile/issues/45)) ([44a8318](https://github.com/hauketoenjes/mplan_mobile/commit/44a8318f0c0f1a9eb2b829c92fa3fc7ddad472ea))
+
 ## [1.6.1](https://github.com/hauketoenjes/mplan_mobile/compare/v1.6.0...v1.6.1) (2023-11-30)
 
 
