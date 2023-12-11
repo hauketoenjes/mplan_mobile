@@ -14,14 +14,16 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Layout(
       pageTitle: context.l10n.settingsPage_title,
-      child: Column(
-        children: <Widget>[
-          const DataPrivacyTile(),
-          const PlanTile(),
-          const AboutTile(),
-          const NotificationTile(),
-        ].genericJoin(
-          const SizedBox(height: 8),
+      child: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            const DataPrivacyTile(),
+            const PlanTile(),
+            const AboutTile(),
+            const NotificationsTile(),
+          ].genericJoin(
+            const SizedBox(height: 8),
+          ),
         ),
       ),
     );
