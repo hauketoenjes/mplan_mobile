@@ -11,7 +11,7 @@ class NotificationsTile extends ConsumerWidget {
     final notifications = ref.watch(notificationNotifierProvider);
 
     return ListTile(
-      title: Text(context.l10n.settingsPage_cancelAllNotifcations),
+      title: Text(context.l10n.settingsPage_cancelAllNotifications),
       subtitle: switch (notifications) {
         AsyncData(:final value) => Text(
             context.l10n

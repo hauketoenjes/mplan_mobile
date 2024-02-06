@@ -46,7 +46,7 @@
   "settingsPage_dataPrivacyDescription": "Informationen über die Verwendung deiner Daten.",
   "settingsPage_plan": "Plan öffnen",
   "settingsPage_planDescription": "Öffne den Plan auf der Website.",
-  "settingsPage_cancelAllNotifcations": "Alle Erinnerungen löschen",
+  "settingsPage_cancelAllNotifications": "Alle Erinnerungen löschen",
   "settingsPage_cancelAllNotifcationsDescription": "Alle eingestellen Erinnerungen werden gelöscht ({count})",
   "@settingsPage_cancelAllNotifcationsDescription": {
     "placeholders": {
@@ -56,6 +56,9 @@
       }
     }
   },
+  "settingsPage_notificationsOverview": "Erinnerungen anzeigen",
+  "settingsPage_notificationsOverviewDescription": "Zeigt eine Übersicht über alle eingestellten Erinnerungen.",
+  "notificationOverviewPage_title": "Erinnerungen",
   "planCard_noLocation": "Kein Ort",
   "planCard_noInformation": "Keine Info",
   "general_addToCalendar": "Zum Kalender hinzufügen",

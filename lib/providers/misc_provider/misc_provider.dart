@@ -6,19 +6,21 @@ import 'package:shared_preferences/shared_preferences.dart';
 part 'misc_provider.g.dart';
 
 /// The shared preferences provider needed for storing the name
-final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
+@Riverpod(keepAlive: true)
+SharedPreferences sharedPreferences(SharedPreferencesRef ref) {
   throw UnimplementedError();
-});
+}
 
 /// The package info provider needed for getting the app version
 /// and build number
-final packageInfoProvider = Provider<PackageInfo>((ref) {
+@Riverpod(keepAlive: true)
+PackageInfo packageInfo(PackageInfoRef ref) {
   throw UnimplementedError();
-});
+}
 
 /// The local notifications provider needed for scheduling
 /// notifications
-@riverpod
+@Riverpod(keepAlive: true)
 FlutterLocalNotificationsPlugin localNotificationsPlugin(
   LocalNotificationsPluginRef ref,
 ) {
