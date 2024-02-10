@@ -46,19 +46,14 @@
   "settingsPage_dataPrivacyDescription": "Informationen über die Verwendung deiner Daten.",
   "settingsPage_plan": "Plan öffnen",
   "settingsPage_planDescription": "Öffne den Plan auf der Website.",
-  "settingsPage_cancelAllNotifications": "Alle Erinnerungen löschen",
-  "settingsPage_cancelAllNotifcationsDescription": "Alle eingestellen Erinnerungen werden gelöscht ({count})",
-  "@settingsPage_cancelAllNotifcationsDescription": {
-    "placeholders": {
-      "count": {
-        "type": "num",
-        "format": "compact"
-      }
-    }
-  },
   "settingsPage_notificationsOverview": "Erinnerungen anzeigen",
   "settingsPage_notificationsOverviewDescription": "Zeigt eine Übersicht über alle eingestellten Erinnerungen.",
   "notificationOverviewPage_title": "Erinnerungen",
+  "notificationOverviewPage_deleteAll": "Alle Erinnerungen löschen?",
+  "notificationOverviewPage_deleteAllDescription": "Möchtest du wirklich alle Erinnerungen löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
+  "notificationOverviewPage_deleteAllCancel": "Abbrechen",
+  "notificationOverviewPage_deleteAllConfirm": "Löschen",
+  "notificationOverviewPage_empty": "Keine Erinnerungen",
   "planCard_noLocation": "Kein Ort",
   "planCard_noInformation": "Keine Info",
   "general_addToCalendar": "Zum Kalender hinzufügen",

@@ -14,15 +14,24 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+NotificationModel _$NotificationModelFromJson(Map<String, dynamic> json) {
+  return _NotificationModel.fromJson(json);
+}
+
 /// @nodoc
 mixin _$NotificationModel {
-  String get itemId => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
-  Duration get notifyBefore => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get planItemId => throw _privateConstructorUsedError;
+  DateTime get planItemDate => throw _privateConstructorUsedError;
+  String? get planItemLocation => throw _privateConstructorUsedError;
+  String? get planItemExtra => throw _privateConstructorUsedError;
+  NotificationLeadTime get notificationLeadTime =>
+      throw _privateConstructorUsedError;
   String get notificationSubtitle => throw _privateConstructorUsedError;
-  String get appName => throw _privateConstructorUsedError;
+  String get notificationAppName => throw _privateConstructorUsedError;
   String get notificationBody => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NotificationModelCopyWith<NotificationModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -35,11 +44,14 @@ abstract class $NotificationModelCopyWith<$Res> {
       _$NotificationModelCopyWithImpl<$Res, NotificationModel>;
   @useResult
   $Res call(
-      {String itemId,
-      DateTime date,
-      Duration notifyBefore,
+      {String id,
+      String planItemId,
+      DateTime planItemDate,
+      String? planItemLocation,
+      String? planItemExtra,
+      NotificationLeadTime notificationLeadTime,
       String notificationSubtitle,
-      String appName,
+      String notificationAppName,
       String notificationBody});
 }
 
@@ -56,33 +68,48 @@ class _$NotificationModelCopyWithImpl<$Res, $Val extends NotificationModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? itemId = null,
-    Object? date = null,
-    Object? notifyBefore = null,
+    Object? id = null,
+    Object? planItemId = null,
+    Object? planItemDate = null,
+    Object? planItemLocation = freezed,
+    Object? planItemExtra = freezed,
+    Object? notificationLeadTime = null,
     Object? notificationSubtitle = null,
-    Object? appName = null,
+    Object? notificationAppName = null,
     Object? notificationBody = null,
   }) {
     return _then(_value.copyWith(
-      itemId: null == itemId
-          ? _value.itemId
-          : itemId // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      planItemId: null == planItemId
+          ? _value.planItemId
+          : planItemId // ignore: cast_nullable_to_non_nullable
+              as String,
+      planItemDate: null == planItemDate
+          ? _value.planItemDate
+          : planItemDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      notifyBefore: null == notifyBefore
-          ? _value.notifyBefore
-          : notifyBefore // ignore: cast_nullable_to_non_nullable
-              as Duration,
+      planItemLocation: freezed == planItemLocation
+          ? _value.planItemLocation
+          : planItemLocation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      planItemExtra: freezed == planItemExtra
+          ? _value.planItemExtra
+          : planItemExtra // ignore: cast_nullable_to_non_nullable
+              as String?,
+      notificationLeadTime: null == notificationLeadTime
+          ? _value.notificationLeadTime
+          : notificationLeadTime // ignore: cast_nullable_to_non_nullable
+              as NotificationLeadTime,
       notificationSubtitle: null == notificationSubtitle
           ? _value.notificationSubtitle
           : notificationSubtitle // ignore: cast_nullable_to_non_nullable
               as String,
-      appName: null == appName
-          ? _value.appName
-          : appName // ignore: cast_nullable_to_non_nullable
+      notificationAppName: null == notificationAppName
+          ? _value.notificationAppName
+          : notificationAppName // ignore: cast_nullable_to_non_nullable
               as String,
       notificationBody: null == notificationBody
           ? _value.notificationBody
@@ -101,11 +128,14 @@ abstract class _$$NotificationModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String itemId,
-      DateTime date,
-      Duration notifyBefore,
+      {String id,
+      String planItemId,
+      DateTime planItemDate,
+      String? planItemLocation,
+      String? planItemExtra,
+      NotificationLeadTime notificationLeadTime,
       String notificationSubtitle,
-      String appName,
+      String notificationAppName,
       String notificationBody});
 }
 
@@ -120,33 +150,48 @@ class __$$NotificationModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? itemId = null,
-    Object? date = null,
-    Object? notifyBefore = null,
+    Object? id = null,
+    Object? planItemId = null,
+    Object? planItemDate = null,
+    Object? planItemLocation = freezed,
+    Object? planItemExtra = freezed,
+    Object? notificationLeadTime = null,
     Object? notificationSubtitle = null,
-    Object? appName = null,
+    Object? notificationAppName = null,
     Object? notificationBody = null,
   }) {
     return _then(_$NotificationModelImpl(
-      itemId: null == itemId
-          ? _value.itemId
-          : itemId // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      planItemId: null == planItemId
+          ? _value.planItemId
+          : planItemId // ignore: cast_nullable_to_non_nullable
+              as String,
+      planItemDate: null == planItemDate
+          ? _value.planItemDate
+          : planItemDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      notifyBefore: null == notifyBefore
-          ? _value.notifyBefore
-          : notifyBefore // ignore: cast_nullable_to_non_nullable
-              as Duration,
+      planItemLocation: freezed == planItemLocation
+          ? _value.planItemLocation
+          : planItemLocation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      planItemExtra: freezed == planItemExtra
+          ? _value.planItemExtra
+          : planItemExtra // ignore: cast_nullable_to_non_nullable
+              as String?,
+      notificationLeadTime: null == notificationLeadTime
+          ? _value.notificationLeadTime
+          : notificationLeadTime // ignore: cast_nullable_to_non_nullable
+              as NotificationLeadTime,
       notificationSubtitle: null == notificationSubtitle
           ? _value.notificationSubtitle
           : notificationSubtitle // ignore: cast_nullable_to_non_nullable
               as String,
-      appName: null == appName
-          ? _value.appName
-          : appName // ignore: cast_nullable_to_non_nullable
+      notificationAppName: null == notificationAppName
+          ? _value.notificationAppName
+          : notificationAppName // ignore: cast_nullable_to_non_nullable
               as String,
       notificationBody: null == notificationBody
           ? _value.notificationBody
@@ -157,32 +202,44 @@ class __$$NotificationModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$NotificationModelImpl implements _NotificationModel {
   const _$NotificationModelImpl(
-      {required this.itemId,
-      required this.date,
-      required this.notifyBefore,
+      {required this.id,
+      required this.planItemId,
+      required this.planItemDate,
+      required this.planItemLocation,
+      required this.planItemExtra,
+      required this.notificationLeadTime,
       required this.notificationSubtitle,
-      required this.appName,
+      required this.notificationAppName,
       required this.notificationBody});
 
+  factory _$NotificationModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NotificationModelImplFromJson(json);
+
   @override
-  final String itemId;
+  final String id;
   @override
-  final DateTime date;
+  final String planItemId;
   @override
-  final Duration notifyBefore;
+  final DateTime planItemDate;
+  @override
+  final String? planItemLocation;
+  @override
+  final String? planItemExtra;
+  @override
+  final NotificationLeadTime notificationLeadTime;
   @override
   final String notificationSubtitle;
   @override
-  final String appName;
+  final String notificationAppName;
   @override
   final String notificationBody;
 
   @override
   String toString() {
-    return 'NotificationModel(itemId: $itemId, date: $date, notifyBefore: $notifyBefore, notificationSubtitle: $notificationSubtitle, appName: $appName, notificationBody: $notificationBody)';
+    return 'NotificationModel(id: $id, planItemId: $planItemId, planItemDate: $planItemDate, planItemLocation: $planItemLocation, planItemExtra: $planItemExtra, notificationLeadTime: $notificationLeadTime, notificationSubtitle: $notificationSubtitle, notificationAppName: $notificationAppName, notificationBody: $notificationBody)';
   }
 
   @override
@@ -190,20 +247,38 @@ class _$NotificationModelImpl implements _NotificationModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NotificationModelImpl &&
-            (identical(other.itemId, itemId) || other.itemId == itemId) &&
-            (identical(other.date, date) || other.date == date) &&
-            (identical(other.notifyBefore, notifyBefore) ||
-                other.notifyBefore == notifyBefore) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.planItemId, planItemId) ||
+                other.planItemId == planItemId) &&
+            (identical(other.planItemDate, planItemDate) ||
+                other.planItemDate == planItemDate) &&
+            (identical(other.planItemLocation, planItemLocation) ||
+                other.planItemLocation == planItemLocation) &&
+            (identical(other.planItemExtra, planItemExtra) ||
+                other.planItemExtra == planItemExtra) &&
+            (identical(other.notificationLeadTime, notificationLeadTime) ||
+                other.notificationLeadTime == notificationLeadTime) &&
             (identical(other.notificationSubtitle, notificationSubtitle) ||
                 other.notificationSubtitle == notificationSubtitle) &&
-            (identical(other.appName, appName) || other.appName == appName) &&
+            (identical(other.notificationAppName, notificationAppName) ||
+                other.notificationAppName == notificationAppName) &&
             (identical(other.notificationBody, notificationBody) ||
                 other.notificationBody == notificationBody));
   }
 
+  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, itemId, date, notifyBefore,
-      notificationSubtitle, appName, notificationBody);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      planItemId,
+      planItemDate,
+      planItemLocation,
+      planItemExtra,
+      notificationLeadTime,
+      notificationSubtitle,
+      notificationAppName,
+      notificationBody);
 
   @JsonKey(ignore: true)
   @override
@@ -211,27 +286,46 @@ class _$NotificationModelImpl implements _NotificationModel {
   _$$NotificationModelImplCopyWith<_$NotificationModelImpl> get copyWith =>
       __$$NotificationModelImplCopyWithImpl<_$NotificationModelImpl>(
           this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$NotificationModelImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _NotificationModel implements NotificationModel {
   const factory _NotificationModel(
-      {required final String itemId,
-      required final DateTime date,
-      required final Duration notifyBefore,
+      {required final String id,
+      required final String planItemId,
+      required final DateTime planItemDate,
+      required final String? planItemLocation,
+      required final String? planItemExtra,
+      required final NotificationLeadTime notificationLeadTime,
       required final String notificationSubtitle,
-      required final String appName,
+      required final String notificationAppName,
       required final String notificationBody}) = _$NotificationModelImpl;
 
+  factory _NotificationModel.fromJson(Map<String, dynamic> json) =
+      _$NotificationModelImpl.fromJson;
+
   @override
-  String get itemId;
+  String get id;
   @override
-  DateTime get date;
+  String get planItemId;
   @override
-  Duration get notifyBefore;
+  DateTime get planItemDate;
+  @override
+  String? get planItemLocation;
+  @override
+  String? get planItemExtra;
+  @override
+  NotificationLeadTime get notificationLeadTime;
   @override
   String get notificationSubtitle;
   @override
-  String get appName;
+  String get notificationAppName;
   @override
   String get notificationBody;
   @override

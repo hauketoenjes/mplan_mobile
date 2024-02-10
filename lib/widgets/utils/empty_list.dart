@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 
 class EmptyList extends StatelessWidget {
-  const EmptyList({super.key});
+  const EmptyList({required this.icon, super.key});
+
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class EmptyList extends StatelessWidget {
       child: Column(
         children: [
           Icon(
-            Icons.check_outlined,
+            icon,
             size: 64,
             color: Theme.of(context).colorScheme.secondary,
           ),
