@@ -10,9 +10,11 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:mplan_mobile/gen/assets.gen.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
+import 'package:mplan_mobile/pages/foreword_page.dart';
 import 'package:mplan_mobile/pages/personal_plan_page.dart';
 import 'package:mplan_mobile/pages/plan_page.dart';
 import 'package:mplan_mobile/pages/settings_page.dart';
+import 'package:mplan_mobile/providers/foreword_provider/foreword_provider.dart';
 import 'package:mplan_mobile/providers/misc_provider/misc_provider.dart';
 import 'package:mplan_mobile/providers/notification_notifier/notification_notifier.dart';
 import 'package:mplan_mobile/providers/plan_provider/plan_provider.dart';
@@ -113,6 +115,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
       ref
         ..invalidate(notificationNotifierProvider)
         ..invalidate(fetchPlanProvider)
+        ..invalidate(fetchForewordProvider)
         ..invalidate(getTimeOfDayProvider);
     }
     super.didChangeAppLifecycleState(state);
@@ -137,6 +140,13 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
           label: context.l10n.perosnalPlanPage_title,
         ),
         widget: const PersonalPlanPage()
+      ),
+      (
+        destination: NavigationDestination(
+          icon: const Icon(Icons.description_outlined),
+          label: context.l10n.forewordPage_title,
+        ),
+        widget: const ForewordPage()
       ),
       (
         destination: NavigationDestination(

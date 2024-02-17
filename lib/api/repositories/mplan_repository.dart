@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:dio_cache_interceptor_hive_store/dio_cache_interceptor_hive_store.dart';
+import 'package:mplan_mobile/api/models/foreword_model.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
 import 'package:mplan_mobile/app_configuration.dart';
 
-class PlanRepository {
+class MplanRepository {
   /// Cache options. Use the default store (Hive).
   static final _cacheOptions = CacheOptions(
     store: HiveCacheStore(null),
@@ -33,5 +34,17 @@ class PlanRepository {
         [];
 
     return plan;
+  }
+
+  /// Get the foreword from the API.
+  Future<Foreword> getForeword({bool skipCache = false}) async {
+    final response = await _dio.get<Map<String, dynamic>>(
+      forewordFetchUrl.toString(),
+      options: skipCache
+          ? _cacheOptions.copyWith(policy: CachePolicy.refresh).toOptions()
+          : null,
+    );
+
+    return Foreword.fromJson(response.data!);
   }
 }
