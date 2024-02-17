@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.7.0...v1.8.0) (2024-02-17)
+
+
+### Features
+
+* Add foreword screen ([#48](https://github.com/hauketoenjes/mplan_mobile/issues/48)) ([6c468c2](https://github.com/hauketoenjes/mplan_mobile/commit/6c468c2783b22aba7762831159a13446a62fc942))
+
 ## [1.7.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.6.1...v1.7.0) (2023-12-11)
 
 
