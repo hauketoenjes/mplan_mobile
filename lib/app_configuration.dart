@@ -8,3 +8,8 @@ Uri planUrl = Uri.parse('https://messdiener-visbek.de/plan');
 Uri planFetchUrl = Uri.parse(
   'https://mplan.messdiener-visbek.de/api/plan',
 );
+
+/// The URL to the foreword fetch function
+Uri forewordFetchUrl = Uri.parse(
+  'https://mplan.messdiener-visbek.de/api/foreword',
+);

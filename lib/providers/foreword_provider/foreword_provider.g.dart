@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'plan_provider.dart';
+part of 'foreword_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$fetchPlanHash() => r'9f1c2eee01d49a787d3a00b69f3c618e0d8151c9';
+String _$fetchForewordHash() => r'bc8b32029ac6786583fdb931d32994670961df76';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,35 +29,35 @@ class _SystemHash {
   }
 }
 
-/// Provider to fetch the plan.
+/// Provider to fetch the foreword.
 ///
-/// Copied from [fetchPlan].
-@ProviderFor(fetchPlan)
-const fetchPlanProvider = FetchPlanFamily();
+/// Copied from [fetchForeword].
+@ProviderFor(fetchForeword)
+const fetchForewordProvider = FetchForewordFamily();
 
-/// Provider to fetch the plan.
+/// Provider to fetch the foreword.
 ///
-/// Copied from [fetchPlan].
-class FetchPlanFamily extends Family<AsyncValue<List<PlanItem>>> {
-  /// Provider to fetch the plan.
+/// Copied from [fetchForeword].
+class FetchForewordFamily extends Family<AsyncValue<Foreword>> {
+  /// Provider to fetch the foreword.
   ///
-  /// Copied from [fetchPlan].
-  const FetchPlanFamily();
+  /// Copied from [fetchForeword].
+  const FetchForewordFamily();
 
-  /// Provider to fetch the plan.
+  /// Provider to fetch the foreword.
   ///
-  /// Copied from [fetchPlan].
-  FetchPlanProvider call({
+  /// Copied from [fetchForeword].
+  FetchForewordProvider call({
     bool forceRefresh = false,
   }) {
-    return FetchPlanProvider(
+    return FetchForewordProvider(
       forceRefresh: forceRefresh,
     );
   }
 
   @override
-  FetchPlanProvider getProviderOverride(
-    covariant FetchPlanProvider provider,
+  FetchForewordProvider getProviderOverride(
+    covariant FetchForewordProvider provider,
   ) {
     return call(
       forceRefresh: provider.forceRefresh,
@@ -76,35 +76,36 @@ class FetchPlanFamily extends Family<AsyncValue<List<PlanItem>>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'fetchPlanProvider';
+  String? get name => r'fetchForewordProvider';
 }
 
-/// Provider to fetch the plan.
+/// Provider to fetch the foreword.
 ///
-/// Copied from [fetchPlan].
-class FetchPlanProvider extends AutoDisposeFutureProvider<List<PlanItem>> {
-  /// Provider to fetch the plan.
+/// Copied from [fetchForeword].
+class FetchForewordProvider extends AutoDisposeFutureProvider<Foreword> {
+  /// Provider to fetch the foreword.
   ///
-  /// Copied from [fetchPlan].
-  FetchPlanProvider({
+  /// Copied from [fetchForeword].
+  FetchForewordProvider({
     bool forceRefresh = false,
   }) : this._internal(
-          (ref) => fetchPlan(
-            ref as FetchPlanRef,
+          (ref) => fetchForeword(
+            ref as FetchForewordRef,
             forceRefresh: forceRefresh,
           ),
-          from: fetchPlanProvider,
-          name: r'fetchPlanProvider',
+          from: fetchForewordProvider,
+          name: r'fetchForewordProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$fetchPlanHash,
-          dependencies: FetchPlanFamily._dependencies,
-          allTransitiveDependencies: FetchPlanFamily._allTransitiveDependencies,
+                  : _$fetchForewordHash,
+          dependencies: FetchForewordFamily._dependencies,
+          allTransitiveDependencies:
+              FetchForewordFamily._allTransitiveDependencies,
           forceRefresh: forceRefresh,
         );
 
-  FetchPlanProvider._internal(
+  FetchForewordProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -118,12 +119,12 @@ class FetchPlanProvider extends AutoDisposeFutureProvider<List<PlanItem>> {
 
   @override
   Override overrideWith(
-    FutureOr<List<PlanItem>> Function(FetchPlanRef provider) create,
+    FutureOr<Foreword> Function(FetchForewordRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: FetchPlanProvider._internal(
-        (ref) => create(ref as FetchPlanRef),
+      override: FetchForewordProvider._internal(
+        (ref) => create(ref as FetchForewordRef),
         from: from,
         name: null,
         dependencies: null,
@@ -135,13 +136,13 @@ class FetchPlanProvider extends AutoDisposeFutureProvider<List<PlanItem>> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<PlanItem>> createElement() {
-    return _FetchPlanProviderElement(this);
+  AutoDisposeFutureProviderElement<Foreword> createElement() {
+    return _FetchForewordProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is FetchPlanProvider && other.forceRefresh == forceRefresh;
+    return other is FetchForewordProvider && other.forceRefresh == forceRefresh;
   }
 
   @override
@@ -153,17 +154,17 @@ class FetchPlanProvider extends AutoDisposeFutureProvider<List<PlanItem>> {
   }
 }
 
-mixin FetchPlanRef on AutoDisposeFutureProviderRef<List<PlanItem>> {
+mixin FetchForewordRef on AutoDisposeFutureProviderRef<Foreword> {
   /// The parameter `forceRefresh` of this provider.
   bool get forceRefresh;
 }
 
-class _FetchPlanProviderElement
-    extends AutoDisposeFutureProviderElement<List<PlanItem>> with FetchPlanRef {
-  _FetchPlanProviderElement(super.provider);
+class _FetchForewordProviderElement
+    extends AutoDisposeFutureProviderElement<Foreword> with FetchForewordRef {
+  _FetchForewordProviderElement(super.provider);
 
   @override
-  bool get forceRefresh => (origin as FetchPlanProvider).forceRefresh;
+  bool get forceRefresh => (origin as FetchForewordProvider).forceRefresh;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

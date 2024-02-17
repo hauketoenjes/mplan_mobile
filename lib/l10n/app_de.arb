@@ -38,6 +38,8 @@
   },
   "personalPlanPage_calendarTitle": "Messe dienen",
   "planPage_title": "Dienstplan",
+  "forewordPage_title": "Vorwort",
+  "forewordPage_refreshedAt": "Zuletzt aktualisiert am",
   "settingsPage_title": "Einstellungen",
   "settingsPage_about": "Über diese App",
   "settingsPage_aboutDescription": "Informationen über diese App. Lizenzen, Versionsnummer, usw.",
