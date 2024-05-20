@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.1](https://github.com/hauketoenjes/mplan_mobile/compare/v1.9.0...v1.9.1) (2024-05-20)
+
+
+### Bug Fixes
+
+* Update dependencies ([#52](https://github.com/hauketoenjes/mplan_mobile/issues/52)) ([b9c2e62](https://github.com/hauketoenjes/mplan_mobile/commit/b9c2e62aff3aae9d34bf3acd2ead15e56c9df099))
+
 ## [1.9.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.8.0...v1.9.0) (2024-04-11)
 
 
