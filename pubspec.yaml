@@ -16,7 +16,7 @@ dependencies:
   hive_flutter: ^1.1.0
   freezed_annotation: ^2.4.1
   dio: ^5.3.3
-  intl: ^0.18.1
+  intl: ^0.19.0
   timeago: ^3.5.0
   flutter_localizations:
     sdk: flutter
@@ -25,7 +25,7 @@ dependencies:
   collection: ^1.17.2
   flutter_native_splash: ^2.3.3
   json_annotation: ^4.8.1
-  package_info_plus: ^5.0.1
+  package_info_plus: ^8.0.0
   add_2_calendar:
     git:
       url: https://github.com/ja2375/add_2_calendar
@@ -36,12 +36,12 @@ dependencies:
   flutter_local_notifications: ^17.0.0
   timezone: ^0.9.2
   flutter_animate: ^4.3.0
-  flutter_markdown: ^0.6.19
+  flutter_markdown: ^0.7.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.1
+  flutter_lints: ^4.0.0
   build_runner: ^2.4.6
   freezed: ^2.4.3
   json_serializable: ^6.7.1
