@@ -4,12 +4,12 @@ part 'foreword_model.freezed.dart';
 part 'foreword_model.g.dart';
 
 @freezed
-class Foreword with _$Foreword {
-  const factory Foreword({
+class ForewordModel with _$ForewordModel {
+  const factory ForewordModel({
     required String content,
-    required DateTime date,
-  }) = _Foreword;
+    @JsonKey(name: 'updated_on') required DateTime updatedOn,
+  }) = _ForewordModel;
 
-  factory Foreword.fromJson(Map<String, dynamic> json) =>
-      _$ForewordFromJson(json);
+  factory ForewordModel.fromJson(Map<String, dynamic> json) =>
+      _$ForewordModelFromJson(json);
 }

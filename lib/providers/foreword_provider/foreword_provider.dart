@@ -6,7 +6,7 @@ part 'foreword_provider.g.dart';
 
 /// Provider to fetch the foreword.
 @riverpod
-Future<Foreword> fetchForeword(
+Future<ForewordModel> fetchForeword(
   FetchForewordRef ref, {
   bool forceRefresh = false,
 }) async {

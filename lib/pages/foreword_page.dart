@@ -11,7 +11,7 @@ class ForewordPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final foreword = ref.watch(fetchForewordProvider(forceRefresh: true));
+    final foreword = ref.watch(fetchForewordProvider());
 
     return Layout(
       pageTitle: context.l10n.forewordPage_title,

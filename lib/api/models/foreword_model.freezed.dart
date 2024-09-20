@@ -14,91 +14,101 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-Foreword _$ForewordFromJson(Map<String, dynamic> json) {
-  return _Foreword.fromJson(json);
+ForewordModel _$ForewordModelFromJson(Map<String, dynamic> json) {
+  return _ForewordModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Foreword {
+mixin _$ForewordModel {
   String get content => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated_on')
+  DateTime get updatedOn => throw _privateConstructorUsedError;
 
+  /// Serializes this ForewordModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ForewordCopyWith<Foreword> get copyWith =>
+
+  /// Create a copy of ForewordModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $ForewordModelCopyWith<ForewordModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ForewordCopyWith<$Res> {
-  factory $ForewordCopyWith(Foreword value, $Res Function(Foreword) then) =
-      _$ForewordCopyWithImpl<$Res, Foreword>;
+abstract class $ForewordModelCopyWith<$Res> {
+  factory $ForewordModelCopyWith(
+          ForewordModel value, $Res Function(ForewordModel) then) =
+      _$ForewordModelCopyWithImpl<$Res, ForewordModel>;
   @useResult
-  $Res call({String content, DateTime date});
+  $Res call({String content, @JsonKey(name: 'updated_on') DateTime updatedOn});
 }
 
 /// @nodoc
-class _$ForewordCopyWithImpl<$Res, $Val extends Foreword>
-    implements $ForewordCopyWith<$Res> {
-  _$ForewordCopyWithImpl(this._value, this._then);
+class _$ForewordModelCopyWithImpl<$Res, $Val extends ForewordModel>
+    implements $ForewordModelCopyWith<$Res> {
+  _$ForewordModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ForewordModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? content = null,
-    Object? date = null,
+    Object? updatedOn = null,
   }) {
     return _then(_value.copyWith(
       content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      updatedOn: null == updatedOn
+          ? _value.updatedOn
+          : updatedOn // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$ForewordImplCopyWith<$Res>
-    implements $ForewordCopyWith<$Res> {
-  factory _$$ForewordImplCopyWith(
-          _$ForewordImpl value, $Res Function(_$ForewordImpl) then) =
-      __$$ForewordImplCopyWithImpl<$Res>;
+abstract class _$$ForewordModelImplCopyWith<$Res>
+    implements $ForewordModelCopyWith<$Res> {
+  factory _$$ForewordModelImplCopyWith(
+          _$ForewordModelImpl value, $Res Function(_$ForewordModelImpl) then) =
+      __$$ForewordModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String content, DateTime date});
+  $Res call({String content, @JsonKey(name: 'updated_on') DateTime updatedOn});
 }
 
 /// @nodoc
-class __$$ForewordImplCopyWithImpl<$Res>
-    extends _$ForewordCopyWithImpl<$Res, _$ForewordImpl>
-    implements _$$ForewordImplCopyWith<$Res> {
-  __$$ForewordImplCopyWithImpl(
-      _$ForewordImpl _value, $Res Function(_$ForewordImpl) _then)
+class __$$ForewordModelImplCopyWithImpl<$Res>
+    extends _$ForewordModelCopyWithImpl<$Res, _$ForewordModelImpl>
+    implements _$$ForewordModelImplCopyWith<$Res> {
+  __$$ForewordModelImplCopyWithImpl(
+      _$ForewordModelImpl _value, $Res Function(_$ForewordModelImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ForewordModel
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? content = null,
-    Object? date = null,
+    Object? updatedOn = null,
   }) {
-    return _then(_$ForewordImpl(
+    return _then(_$ForewordModelImpl(
       content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
+      updatedOn: null == updatedOn
+          ? _value.updatedOn
+          : updatedOn // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
   }
@@ -106,63 +116,74 @@ class __$$ForewordImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ForewordImpl implements _Foreword {
-  const _$ForewordImpl({required this.content, required this.date});
+class _$ForewordModelImpl implements _ForewordModel {
+  const _$ForewordModelImpl(
+      {required this.content,
+      @JsonKey(name: 'updated_on') required this.updatedOn});
 
-  factory _$ForewordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ForewordImplFromJson(json);
+  factory _$ForewordModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ForewordModelImplFromJson(json);
 
   @override
   final String content;
   @override
-  final DateTime date;
+  @JsonKey(name: 'updated_on')
+  final DateTime updatedOn;
 
   @override
   String toString() {
-    return 'Foreword(content: $content, date: $date)';
+    return 'ForewordModel(content: $content, updatedOn: $updatedOn)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ForewordImpl &&
+            other is _$ForewordModelImpl &&
             (identical(other.content, content) || other.content == content) &&
-            (identical(other.date, date) || other.date == date));
+            (identical(other.updatedOn, updatedOn) ||
+                other.updatedOn == updatedOn));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, content, date);
+  int get hashCode => Object.hash(runtimeType, content, updatedOn);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ForewordModel
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ForewordImplCopyWith<_$ForewordImpl> get copyWith =>
-      __$$ForewordImplCopyWithImpl<_$ForewordImpl>(this, _$identity);
+  _$$ForewordModelImplCopyWith<_$ForewordModelImpl> get copyWith =>
+      __$$ForewordModelImplCopyWithImpl<_$ForewordModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ForewordImplToJson(
+    return _$$ForewordModelImplToJson(
       this,
     );
   }
 }
 
-abstract class _Foreword implements Foreword {
-  const factory _Foreword(
-      {required final String content,
-      required final DateTime date}) = _$ForewordImpl;
+abstract class _ForewordModel implements ForewordModel {
+  const factory _ForewordModel(
+          {required final String content,
+          @JsonKey(name: 'updated_on') required final DateTime updatedOn}) =
+      _$ForewordModelImpl;
 
-  factory _Foreword.fromJson(Map<String, dynamic> json) =
-      _$ForewordImpl.fromJson;
+  factory _ForewordModel.fromJson(Map<String, dynamic> json) =
+      _$ForewordModelImpl.fromJson;
 
   @override
   String get content;
   @override
-  DateTime get date;
+  @JsonKey(name: 'updated_on')
+  DateTime get updatedOn;
+
+  /// Create a copy of ForewordModel
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$ForewordImplCopyWith<_$ForewordImpl> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ForewordModelImplCopyWith<_$ForewordModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

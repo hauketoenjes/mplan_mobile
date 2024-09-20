@@ -6,14 +6,14 @@ part of 'foreword_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ForewordImpl _$$ForewordImplFromJson(Map<String, dynamic> json) =>
-    _$ForewordImpl(
+_$ForewordModelImpl _$$ForewordModelImplFromJson(Map<String, dynamic> json) =>
+    _$ForewordModelImpl(
       content: json['content'] as String,
-      date: DateTime.parse(json['date'] as String),
+      updatedOn: DateTime.parse(json['updated_on'] as String),
     );
 
-Map<String, dynamic> _$$ForewordImplToJson(_$ForewordImpl instance) =>
+Map<String, dynamic> _$$ForewordModelImplToJson(_$ForewordModelImpl instance) =>
     <String, dynamic>{
       'content': instance.content,
-      'date': instance.date.toIso8601String(),
+      'updated_on': instance.updatedOn.toIso8601String(),
     };
