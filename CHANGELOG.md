@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.9.1...v1.10.0) (2024-09-20)
+
+
+### Features
+
+* Fetch Foreword from CMS ([#54](https://github.com/hauketoenjes/mplan_mobile/issues/54)) ([fdc0164](https://github.com/hauketoenjes/mplan_mobile/commit/fdc0164e7eea8aa97c26bbd852c2570d5a95a720))
+
 ## [1.9.1](https://github.com/hauketoenjes/mplan_mobile/compare/v1.9.0...v1.9.1) (2024-05-20)
 
 
