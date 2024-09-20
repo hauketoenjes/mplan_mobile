@@ -27,8 +27,12 @@ mixin _$PlanItem {
   bool? get canceled => throw _privateConstructorUsedError;
   Map<String, List<String>>? get acolytes => throw _privateConstructorUsedError;
 
+  /// Serializes this PlanItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PlanItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PlanItemCopyWith<PlanItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -57,6 +61,8 @@ class _$PlanItemCopyWithImpl<$Res, $Val extends PlanItem>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PlanItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -121,6 +127,8 @@ class __$$PlanItemImplCopyWithImpl<$Res>
       _$PlanItemImpl _value, $Res Function(_$PlanItemImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PlanItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -215,12 +223,14 @@ class _$PlanItemImpl implements _PlanItem {
             const DeepCollectionEquality().equals(other._acolytes, _acolytes));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, date, location, extra,
       canceled, const DeepCollectionEquality().hash(_acolytes));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PlanItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PlanItemImplCopyWith<_$PlanItemImpl> get copyWith =>
@@ -258,8 +268,11 @@ abstract class _PlanItem implements PlanItem {
   bool? get canceled;
   @override
   Map<String, List<String>>? get acolytes;
+
+  /// Create a copy of PlanItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PlanItemImplCopyWith<_$PlanItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

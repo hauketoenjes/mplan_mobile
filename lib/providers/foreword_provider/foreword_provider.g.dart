@@ -6,7 +6,7 @@ part of 'foreword_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$fetchForewordHash() => r'bc8b32029ac6786583fdb931d32994670961df76';
+String _$fetchForewordHash() => r'e4e7f82d976f3a52f3fb3c6ccf4f5ebab2e10333';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -38,7 +38,7 @@ const fetchForewordProvider = FetchForewordFamily();
 /// Provider to fetch the foreword.
 ///
 /// Copied from [fetchForeword].
-class FetchForewordFamily extends Family<AsyncValue<Foreword>> {
+class FetchForewordFamily extends Family<AsyncValue<ForewordModel>> {
   /// Provider to fetch the foreword.
   ///
   /// Copied from [fetchForeword].
@@ -82,7 +82,7 @@ class FetchForewordFamily extends Family<AsyncValue<Foreword>> {
 /// Provider to fetch the foreword.
 ///
 /// Copied from [fetchForeword].
-class FetchForewordProvider extends AutoDisposeFutureProvider<Foreword> {
+class FetchForewordProvider extends AutoDisposeFutureProvider<ForewordModel> {
   /// Provider to fetch the foreword.
   ///
   /// Copied from [fetchForeword].
@@ -119,7 +119,7 @@ class FetchForewordProvider extends AutoDisposeFutureProvider<Foreword> {
 
   @override
   Override overrideWith(
-    FutureOr<Foreword> Function(FetchForewordRef provider) create,
+    FutureOr<ForewordModel> Function(FetchForewordRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -136,7 +136,7 @@ class FetchForewordProvider extends AutoDisposeFutureProvider<Foreword> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<Foreword> createElement() {
+  AutoDisposeFutureProviderElement<ForewordModel> createElement() {
     return _FetchForewordProviderElement(this);
   }
 
@@ -154,13 +154,14 @@ class FetchForewordProvider extends AutoDisposeFutureProvider<Foreword> {
   }
 }
 
-mixin FetchForewordRef on AutoDisposeFutureProviderRef<Foreword> {
+mixin FetchForewordRef on AutoDisposeFutureProviderRef<ForewordModel> {
   /// The parameter `forceRefresh` of this provider.
   bool get forceRefresh;
 }
 
 class _FetchForewordProviderElement
-    extends AutoDisposeFutureProviderElement<Foreword> with FetchForewordRef {
+    extends AutoDisposeFutureProviderElement<ForewordModel>
+    with FetchForewordRef {
   _FetchForewordProviderElement(super.provider);
 
   @override

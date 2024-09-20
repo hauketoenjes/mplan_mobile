@@ -37,7 +37,7 @@ class MplanRepository {
   }
 
   /// Get the foreword from the API.
-  Future<Foreword> getForeword({bool skipCache = false}) async {
+  Future<ForewordModel> getForeword({bool skipCache = false}) async {
     final response = await _dio.get<Map<String, dynamic>>(
       forewordFetchUrl.toString(),
       options: skipCache
@@ -45,6 +45,8 @@ class MplanRepository {
           : null,
     );
 
-    return Foreword.fromJson(response.data!);
+    return ForewordModel.fromJson(
+      response.data!['data'] as Map<String, dynamic>,
+    );
   }
 }
