@@ -1,9 +1,10 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'timeofday_provider.g.dart';
 
 @riverpod
-TimeOfDayEnum getTimeOfDay(GetTimeOfDayRef ref) {
+TimeOfDayEnum getTimeOfDay(Ref ref) {
   final hour = DateTime.now().hour;
 
   if (hour < 12) {

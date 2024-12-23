@@ -37,7 +37,7 @@ class _NameTextFieldState extends ConsumerState<NameTextField> {
         border: InputBorder.none,
       ),
       controller: _controller,
-      onChanged: (value) => ref.read(nameProvider.notifier).state = value,
+      onChanged: (value) => ref.read(nameProvider.notifier).onChange(value),
       onSubmitted: (value) => HapticFeedback.mediumImpact(),
       style: Theme.of(context).textTheme.displaySmall?.copyWith(
             fontWeight: FontWeight.bold,

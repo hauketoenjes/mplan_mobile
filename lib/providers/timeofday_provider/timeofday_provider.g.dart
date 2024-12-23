@@ -6,7 +6,7 @@ part of 'timeofday_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$getTimeOfDayHash() => r'0ca29bbf1d37ec0d7410f00f53bb06f29270f6cd';
+String _$getTimeOfDayHash() => r'43c19bd0191b5b22cf595f7ee7446a549c4785da';
 
 /// See also [getTimeOfDay].
 @ProviderFor(getTimeOfDay)
@@ -19,6 +19,8 @@ final getTimeOfDayProvider = AutoDisposeProvider<TimeOfDayEnum>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef GetTimeOfDayRef = AutoDisposeProviderRef<TimeOfDayEnum>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

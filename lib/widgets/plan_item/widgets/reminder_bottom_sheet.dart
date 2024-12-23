@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
-import 'package:mplan_mobile/misc/list_extensions.dart';
 
 class ReminderBottomSheet extends StatelessWidget {
   const ReminderBottomSheet({
@@ -22,6 +21,7 @@ class ReminderBottomSheet extends StatelessWidget {
       ),
       child: SingleChildScrollView(
         child: Column(
+          spacing: 16,
           children: <Widget>[
             ...<Widget>[
               Container(
@@ -64,7 +64,7 @@ class ReminderBottomSheet extends StatelessWidget {
                   onTap: () => Navigator.pop(context, const Duration(hours: 1)),
                   tileColor: Theme.of(context).colorScheme.secondaryContainer,
                 ),
-            ].genericJoin(const SizedBox(height: 16)),
+            ],
             const SizedBox(height: 48),
           ],
         ),
