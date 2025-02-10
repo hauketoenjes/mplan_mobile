@@ -1,8 +1,8 @@
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
-import 'package:mplan_mobile/misc/list_extensions.dart';
 import 'package:mplan_mobile/widgets/plan_item/widgets/date_text.dart';
 import 'package:mplan_mobile/widgets/plan_item/widgets/grouped_acolytes.dart';
 import 'package:mplan_mobile/widgets/plan_item/widgets/information_row.dart';
@@ -26,6 +26,7 @@ class PlanItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WrappingCard(
+      spacing: 8,
       children: <Widget>[
         DateText(dateTime: item.date),
         InformationRow(
@@ -50,7 +51,7 @@ class PlanItemCard extends StatelessWidget {
                 IconButton(
                   onPressed: onAddToCalendar,
                   tooltip: context.l10n.general_addToCalendar,
-                  color: Theme.of(context).colorScheme.primary,
+                  color: context.primaryColor,
                   icon: const Icon(Icons.edit_calendar_outlined),
                 ),
               if (canSetReminder)
@@ -59,9 +60,7 @@ class PlanItemCard extends StatelessWidget {
                 ),
             ],
           ),
-      ].genericJoin(
-        const SizedBox(height: 8),
-      ),
+      ],
     ).animate().fadeIn();
   }
 }

@@ -1,3 +1,4 @@
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:mplan_mobile/misc/list_extensions.dart';
 
@@ -23,8 +24,7 @@ class GroupedRole extends StatelessWidget {
         text: acolyte,
         style: TextStyle(
           decoration: isHighighted ? TextDecoration.underline : null,
-          decorationColor:
-              isHighighted ? Theme.of(context).colorScheme.primary : null,
+          decorationColor: isHighighted ? context.primaryColor : null,
         ),
       );
     }).toList();
@@ -38,7 +38,7 @@ class GroupedRole extends StatelessWidget {
         ),
         RichText(
           text: TextSpan(
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: context.bodyMedium,
             children: textSpans.genericJoin(
               const TextSpan(text: ' · '),
             ),

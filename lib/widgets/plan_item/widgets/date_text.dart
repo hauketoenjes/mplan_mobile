@@ -1,3 +1,4 @@
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mplan_mobile/misc/datetime_extensions.dart';
@@ -13,10 +14,7 @@ class DateText extends StatelessWidget {
 
     return Text(
       dateFormat.format(dateTime.toLocalTz()),
-      style: Theme.of(context)
-          .textTheme
-          .bodyLarge
-          ?.copyWith(fontWeight: FontWeight.bold),
+      style: context.bodyLarge?.bold,
     );
   }
 }

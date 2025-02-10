@@ -1,3 +1,4 @@
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 
 class Layout extends StatelessWidget {
@@ -19,25 +20,22 @@ class Layout extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                pageTitle,
-                style: Theme.of(context).textTheme.displaySmall,
-              ),
-              if (subtitle != null) subtitle!,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              pageTitle,
+              style: context.displaySmall,
+            ),
+            if (subtitle != null) subtitle!,
+            const SizedBox(height: 16),
+            if (informativeText != null) ...[
+              Text(informativeText!),
               const SizedBox(height: 16),
-              if (informativeText != null) ...[
-                Text(informativeText!),
-                const SizedBox(height: 16),
-              ],
             ],
-          ),
-        ),
-        Expanded(child: child),
+          ],
+        ).paddingOnly(top: 16, left: 16, right: 16),
+        child.expanded(),
       ],
     );
   }

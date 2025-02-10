@@ -1,3 +1,4 @@
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:mplan_mobile/api/models/foreword_model.dart';
@@ -16,24 +17,20 @@ class ForewordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scrollbar(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: RefreshIndicator(
-          onRefresh: onRefresh,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 16),
-                HtmlWidget(foreword.content),
-                const SizedBox(height: 16),
-                RefreshedAt(refreshedAt: foreword.updatedOn),
-                const SizedBox(height: 16),
-              ],
-            ),
+      child: RefreshIndicator(
+        onRefresh: onRefresh,
+        child: SingleChildScrollView(
+          child: Column(
+            spacing: 16,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              HtmlWidget(foreword.content),
+              RefreshedAt(refreshedAt: foreword.updatedOn),
+              const SizedBox(),
+            ],
           ),
         ),
-      ),
+      ).paddingSymmetric(horizontal: 16),
     );
   }
 }
