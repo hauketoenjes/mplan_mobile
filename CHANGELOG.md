@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.11.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.10.0...v1.11.0) (2025-02-10)
+
+
+### Features
+
+* Add awesome extensions and use it where possible ([#58](https://github.com/hauketoenjes/mplan_mobile/issues/58)) ([3d8bcd8](https://github.com/hauketoenjes/mplan_mobile/commit/3d8bcd8985b71ccbf25a5e82b2a04af981ff8138))
+* Update packages and fix warnings ([#56](https://github.com/hauketoenjes/mplan_mobile/issues/56)) ([46a24cf](https://github.com/hauketoenjes/mplan_mobile/commit/46a24cff118d64e013f2378ef15982e028521fe7))
+
 ## [1.10.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.9.1...v1.10.0) (2024-09-20)
 
 
