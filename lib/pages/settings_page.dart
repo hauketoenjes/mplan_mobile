@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
-import 'package:mplan_mobile/misc/list_extensions.dart';
 import 'package:mplan_mobile/widgets/layout/layout.dart';
 import 'package:mplan_mobile/widgets/settings/about_tile.dart';
 import 'package:mplan_mobile/widgets/settings/data_privacy_tile.dart';
@@ -14,16 +13,15 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Layout(
       pageTitle: context.l10n.settingsPage_title,
-      child: SingleChildScrollView(
+      child: const SingleChildScrollView(
         child: Column(
+          spacing: 8,
           children: <Widget>[
-            const DataPrivacyTile(),
-            const PlanTile(),
-            const AboutTile(),
-            const NotificationsTile(),
-          ].genericJoin(
-            const SizedBox(height: 8),
-          ),
+            DataPrivacyTile(),
+            PlanTile(),
+            AboutTile(),
+            NotificationsTile(),
+          ],
         ),
       ),
     );

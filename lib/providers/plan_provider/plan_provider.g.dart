@@ -6,7 +6,7 @@ part of 'plan_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$fetchPlanHash() => r'9f1c2eee01d49a787d3a00b69f3c618e0d8151c9';
+String _$fetchPlanHash() => r'86ec62fb4b978d8a65d49e825b5dfe97606bbe40';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -153,6 +153,8 @@ class FetchPlanProvider extends AutoDisposeFutureProvider<List<PlanItem>> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchPlanRef on AutoDisposeFutureProviderRef<List<PlanItem>> {
   /// The parameter `forceRefresh` of this provider.
   bool get forceRefresh;
@@ -166,4 +168,4 @@ class _FetchPlanProviderElement
   bool get forceRefresh => (origin as FetchPlanProvider).forceRefresh;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

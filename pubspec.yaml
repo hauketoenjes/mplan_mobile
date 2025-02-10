@@ -12,8 +12,6 @@ dependencies:
 
   google_fonts: ^6.1.0
   shared_preferences: ^2.2.1
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
   freezed_annotation: ^2.4.1
   dio: ^5.3.3
   intl: ^0.19.0
@@ -21,7 +19,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   dio_cache_interceptor: ^3.4.4
-  dio_cache_interceptor_hive_store: ^3.2.1
+  dio_cache_interceptor_hive_store: ^4.0.0
   collection: ^1.17.2
   flutter_native_splash: ^2.3.3
   json_annotation: ^4.8.1
@@ -33,22 +31,24 @@ dependencies:
   url_launcher: ^6.2.1
   flutter_riverpod: ^2.4.4
   riverpod_annotation: ^2.2.1
-  flutter_local_notifications: ^17.0.0
-  timezone: ^0.9.2
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.10.0
   flutter_animate: ^4.3.0
   flutter_widget_from_html_core: ^0.15.2
+  hive_ce: ^2.8.0+2
+  hive_ce_flutter: ^2.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
   build_runner: ^2.4.6
   freezed: ^2.4.3
   json_serializable: ^6.7.1
-  very_good_analysis: ^6.0.0
+  very_good_analysis: ^7.0.0
   flutter_gen_runner: ^5.3.2
-  riverpod_generator: ^2.3.5
-  custom_lint: ^0.6.4
+  riverpod_generator: ^2.6.3
+  custom_lint: ^0.7.0
   riverpod_lint: ^2.3.2
 
 flutter:

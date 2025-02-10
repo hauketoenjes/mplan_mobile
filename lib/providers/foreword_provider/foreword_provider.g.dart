@@ -6,7 +6,7 @@ part of 'foreword_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$fetchForewordHash() => r'e4e7f82d976f3a52f3fb3c6ccf4f5ebab2e10333';
+String _$fetchForewordHash() => r'b1d52adfeb3cfbbc3cce992438ace33c2bfcc55b';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -154,6 +154,8 @@ class FetchForewordProvider extends AutoDisposeFutureProvider<ForewordModel> {
   }
 }
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 mixin FetchForewordRef on AutoDisposeFutureProviderRef<ForewordModel> {
   /// The parameter `forceRefresh` of this provider.
   bool get forceRefresh;
@@ -168,4 +170,4 @@ class _FetchForewordProviderElement
   bool get forceRefresh => (origin as FetchForewordProvider).forceRefresh;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

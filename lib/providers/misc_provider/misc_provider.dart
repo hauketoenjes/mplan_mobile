@@ -1,4 +1,5 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mplan_mobile/api/repositories/mplan_repository.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -21,11 +22,11 @@ final packageInfoProvider = Provider<PackageInfo>((ref) {
 /// notifications
 @riverpod
 FlutterLocalNotificationsPlugin localNotificationsPlugin(
-  LocalNotificationsPluginRef ref,
+  Ref ref,
 ) {
   throw UnimplementedError();
 }
 
 /// The [Provider] for the [MplanRepository].
 @riverpod
-MplanRepository mplanRepository(MplanRepositoryRef ref) => MplanRepository();
+MplanRepository mplanRepository(Ref ref) => MplanRepository();
