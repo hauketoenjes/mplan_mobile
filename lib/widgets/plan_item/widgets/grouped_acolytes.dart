@@ -1,3 +1,4 @@
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:mplan_mobile/widgets/plan_item/widgets/grouped_role.dart';
 
@@ -16,14 +17,11 @@ class GroupedAcolytes extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: acolytes.entries.map((entry) {
-        return Padding(
-          padding: const EdgeInsets.only(top: 8),
-          child: GroupedRole(
-            role: entry.key,
-            acolytes: entry.value,
-            highlightedName: highlightedName,
-          ),
-        );
+        return GroupedRole(
+          role: entry.key,
+          acolytes: entry.value,
+          highlightedName: highlightedName,
+        ).paddingOnly(top: 8);
       }).toList(),
     );
   }

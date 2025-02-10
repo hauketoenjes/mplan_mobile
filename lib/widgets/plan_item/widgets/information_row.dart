@@ -1,3 +1,4 @@
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/widgets.dart';
 
 class InformationRow extends StatelessWidget {
@@ -14,12 +15,10 @@ class InformationRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      spacing: 8,
       children: [
         Icon(icon, size: 16),
-        const SizedBox(width: 8),
-        Expanded(
-          child: Text(text),
-        ),
+        Text(text).expanded(),
       ],
     );
   }

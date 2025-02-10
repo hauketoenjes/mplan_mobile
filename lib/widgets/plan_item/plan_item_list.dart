@@ -1,3 +1,4 @@
+import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
 
@@ -16,19 +17,16 @@ class PlanItemList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scrollbar(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: RefreshIndicator(
-          onRefresh: onRefresh,
-          child: ListView.builder(
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              final item = items[index];
-              return itemBuilder(item);
-            },
-          ),
+      child: RefreshIndicator(
+        onRefresh: onRefresh,
+        child: ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            final item = items[index];
+            return itemBuilder(item);
+          },
         ),
-      ),
+      ).paddingSymmetric(horizontal: 16),
     );
   }
 }

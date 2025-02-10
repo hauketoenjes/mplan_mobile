@@ -37,6 +37,7 @@ dependencies:
   flutter_widget_from_html_core: ^0.15.2
   hive_ce: ^2.8.0+2
   hive_ce_flutter: ^2.1.0
+  awesome_extensions: ^2.0.20
 
 dev_dependencies:
   flutter_test:
