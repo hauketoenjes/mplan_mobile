@@ -43,7 +43,7 @@ class _NameTextFieldState extends ConsumerState<NameTextField> {
       style: context.displaySmall?.copyWith(
         fontWeight: FontWeight.bold,
         decoration: TextDecoration.underline,
-        decorationColor: context.primaryColor,
+        decorationColor: Theme.of(context).colorScheme.primary,
       ),
     );
   }

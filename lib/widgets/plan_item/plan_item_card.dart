@@ -1,4 +1,3 @@
-import 'package:awesome_extensions/awesome_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
@@ -51,7 +50,7 @@ class PlanItemCard extends StatelessWidget {
                 IconButton(
                   onPressed: onAddToCalendar,
                   tooltip: context.l10n.general_addToCalendar,
-                  color: context.primaryColor,
+                  color: Theme.of(context).colorScheme.primary,
                   icon: const Icon(Icons.edit_calendar_outlined),
                 ),
               if (canSetReminder)
