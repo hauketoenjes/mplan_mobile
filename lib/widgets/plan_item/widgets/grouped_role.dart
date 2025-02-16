@@ -24,7 +24,8 @@ class GroupedRole extends StatelessWidget {
         text: acolyte,
         style: TextStyle(
           decoration: isHighighted ? TextDecoration.underline : null,
-          decorationColor: isHighighted ? context.primaryColor : null,
+          decorationColor:
+              isHighighted ? Theme.of(context).colorScheme.primary : null,
         ),
       );
     }).toList();

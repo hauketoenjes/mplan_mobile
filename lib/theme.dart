@@ -15,6 +15,11 @@ ThemeData getTheme(Brightness brightness) {
         borderRadius: BorderRadius.circular(8),
       ),
     ),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      // Enable new progress indicator styles.
+      // ignore: deprecated_member_use
+      year2023: false,
+    ),
   );
 
   final textTheme = GoogleFonts.plusJakartaSansTextTheme(baseTheme.textTheme);
