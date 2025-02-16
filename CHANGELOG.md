@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.1](https://github.com/hauketoenjes/mplan_mobile/compare/v1.11.0...v1.11.1) (2025-02-16)
+
+
+### Bug Fixes
+
+* fix wrong colors, update flutter ([#59](https://github.com/hauketoenjes/mplan_mobile/issues/59)) ([a53a5f5](https://github.com/hauketoenjes/mplan_mobile/commit/a53a5f5d4701230b736ea1d2269a41d6e3925212))
+
 ## [1.11.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.10.0...v1.11.0) (2025-02-10)
 
 
