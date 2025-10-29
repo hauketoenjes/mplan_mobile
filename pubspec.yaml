@@ -1,7 +1,7 @@
 name: mplan_mobile
 description: App zum Anzeigen des Messdienerplans der Messdiener St. Vitus Visbek.
 publish_to: "none"
-version: 1.11.1+24
+version: 1.12.0+25
 
 environment:
   sdk: ">=3.8.0 <4.0.0"

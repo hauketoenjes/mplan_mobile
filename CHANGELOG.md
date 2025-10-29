@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.11.1...v1.12.0) (2025-10-29)
+
+
+### Features
+
+* update flutter to 3.35.7 and bump dependencies ([#61](https://github.com/hauketoenjes/mplan_mobile/issues/61)) ([a6c1ec3](https://github.com/hauketoenjes/mplan_mobile/commit/a6c1ec377004f2f063858c010d6cbb0d5b1ac984))
+
 ## [1.11.1](https://github.com/hauketoenjes/mplan_mobile/compare/v1.11.0...v1.11.1) (2025-02-16)
 
 
