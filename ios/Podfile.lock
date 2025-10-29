@@ -1,5 +1,5 @@
 PODS:
-  - add_2_calendar (0.0.1):
+  - add_2_calendar_new (0.0.1):
     - Flutter
   - Flutter (1.0.0)
   - flutter_local_notifications (0.0.1):
@@ -18,7 +18,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - add_2_calendar (from `.symlinks/plugins/add_2_calendar/ios`)
+  - add_2_calendar_new (from `.symlinks/plugins/add_2_calendar_new/ios`)
   - Flutter (from `Flutter`)
   - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
@@ -28,8 +28,8 @@ DEPENDENCIES:
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 EXTERNAL SOURCES:
-  add_2_calendar:
-    :path: ".symlinks/plugins/add_2_calendar/ios"
+  add_2_calendar_new:
+    :path: ".symlinks/plugins/add_2_calendar_new/ios"
   Flutter:
     :path: Flutter
   flutter_local_notifications:
@@ -46,7 +46,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
-  add_2_calendar: 78896c85421aeb7c19988c2b3aad71983089b7e3
+  add_2_calendar_new: 68ef3d90f48e9ae4056357711462e427be6098a0
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
   flutter_local_notifications: 395056b3175ba4f08480a7c5de30cd36d69827e4
   flutter_native_splash: c32d145d68aeda5502d5f543ee38c192065986cf
