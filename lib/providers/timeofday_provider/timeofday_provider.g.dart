@@ -6,21 +6,46 @@ part of 'timeofday_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$getTimeOfDayHash() => r'43c19bd0191b5b22cf595f7ee7446a549c4785da';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [getTimeOfDay].
 @ProviderFor(getTimeOfDay)
-final getTimeOfDayProvider = AutoDisposeProvider<TimeOfDayEnum>.internal(
-  getTimeOfDay,
-  name: r'getTimeOfDayProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$getTimeOfDayHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const getTimeOfDayProvider = GetTimeOfDayProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef GetTimeOfDayRef = AutoDisposeProviderRef<TimeOfDayEnum>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class GetTimeOfDayProvider
+    extends $FunctionalProvider<TimeOfDayEnum, TimeOfDayEnum, TimeOfDayEnum>
+    with $Provider<TimeOfDayEnum> {
+  const GetTimeOfDayProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'getTimeOfDayProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$getTimeOfDayHash();
+
+  @$internal
+  @override
+  $ProviderElement<TimeOfDayEnum> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  TimeOfDayEnum create(Ref ref) {
+    return getTimeOfDay(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(TimeOfDayEnum value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<TimeOfDayEnum>(value),
+    );
+  }
+}
+
+String _$getTimeOfDayHash() => r'43c19bd0191b5b22cf595f7ee7446a549c4785da';

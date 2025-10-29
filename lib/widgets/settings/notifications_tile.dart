@@ -8,20 +8,21 @@ class NotificationsTile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final notifications = ref.watch(notificationNotifierProvider);
+    final notifications = ref.watch(notificationProvider);
 
     return ListTile(
       title: Text(context.l10n.settingsPage_cancelAllNotifcations),
       subtitle: switch (notifications) {
         AsyncData(:final value) => Text(
-            context.l10n
-                .settingsPage_cancelAllNotifcationsDescription(value.length),
+          context.l10n.settingsPage_cancelAllNotifcationsDescription(
+            value.length,
           ),
+        ),
         _ => null,
       },
       leading: const Icon(Icons.notifications_off_outlined),
       onTap: () async {
-        await ref.read(notificationNotifierProvider.notifier).cancelAll();
+        await ref.read(notificationProvider.notifier).cancelAll();
       },
     );
   }

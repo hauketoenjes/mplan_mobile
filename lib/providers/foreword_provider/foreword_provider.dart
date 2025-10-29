@@ -1,4 +1,3 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mplan_mobile/api/models/foreword_model.dart';
 import 'package:mplan_mobile/providers/misc_provider/misc_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';

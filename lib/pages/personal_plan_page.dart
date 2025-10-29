@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:add_2_calendar/add_2_calendar.dart';
+import 'package:add_2_calendar_new/add_2_calendar_new.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
@@ -56,28 +56,30 @@ class PersonalPlanPage extends ConsumerWidget {
       },
       subtitle: const NameTextField(),
       informativeText: switch (filteredPlan) {
-        AsyncData(:final value) => currentName.isEmpty
-            ? context.l10n.personalPlanPage_emptyName
-            : getIntroText(value),
+        AsyncData(:final value) =>
+          currentName.isEmpty
+              ? context.l10n.personalPlanPage_emptyName
+              : getIntroText(value),
         _ => null,
       },
       child: switch (filteredPlan) {
-        AsyncData(:final value) => value.isEmpty && currentName.isNotEmpty
-            ? const Center(child: EmptyList())
-            : PlanItemList(
-                items: value,
-                itemBuilder: (item) => PlanItemCard(
-                  item: item,
-                  highlightedName: currentName,
-                  onAddToCalendar: () {
-                    final event = getEvent(item, currentName, context);
-                    unawaited(Add2Calendar.addEvent2Cal(event));
-                  },
-                  canSetReminder: true,
+        AsyncData(:final value) =>
+          value.isEmpty && currentName.isNotEmpty
+              ? const Center(child: EmptyList())
+              : PlanItemList(
+                  items: value,
+                  itemBuilder: (item) => PlanItemCard(
+                    item: item,
+                    highlightedName: currentName,
+                    onAddToCalendar: () {
+                      final event = getEvent(item, currentName, context);
+                      unawaited(Add2Calendar.addEvent2Cal(event));
+                    },
+                    canSetReminder: true,
+                  ),
+                  onRefresh: () =>
+                      ref.refresh(fetchPlanProvider(forceRefresh: true).future),
                 ),
-                onRefresh: () =>
-                    ref.refresh(fetchPlanProvider(forceRefresh: true).future),
-              ),
         AsyncError() => const Center(child: NetworkError()),
         _ => const Center(child: CircularProgressIndicator()),
       },

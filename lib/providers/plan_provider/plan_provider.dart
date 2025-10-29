@@ -1,7 +1,6 @@
-import 'package:add_2_calendar/add_2_calendar.dart';
+import 'package:add_2_calendar_new/add_2_calendar_new.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/providers/misc_provider/misc_provider.dart';
@@ -27,8 +26,9 @@ List<PlanItem> filterPlan(List<PlanItem> plan, String name) {
   }
 
   return plan.where((element) {
-    final acolytes =
-        element.acolytes?.entries.expand((element) => element.value);
+    final acolytes = element.acolytes?.entries.expand(
+      (element) => element.value,
+    );
 
     return acolytes?.any(
           (element) =>

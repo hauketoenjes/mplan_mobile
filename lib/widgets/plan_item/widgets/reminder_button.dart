@@ -24,7 +24,7 @@ class _ReminderButtonState extends ConsumerState<ReminderButton> {
     final dateFormat = DateFormat('dd.MM.yyyy');
     final timeFormat = DateFormat('HH:mm');
 
-    final notifications = ref.watch(notificationNotifierProvider);
+    final notifications = ref.watch(notificationProvider);
 
     return switch (notifications) {
       AsyncData(:final value) =>
@@ -33,7 +33,7 @@ class _ReminderButtonState extends ConsumerState<ReminderButton> {
                 icon: const Icon(Icons.notifications_off_outlined),
                 label: Text(context.l10n.reminder_remove),
                 onPressed: () => ref
-                    .read(notificationNotifierProvider.notifier)
+                    .read(notificationProvider.notifier)
                     .cancel(widget.item.id),
               )
             : TextButton.icon(
@@ -63,7 +63,7 @@ class _ReminderButtonState extends ConsumerState<ReminderButton> {
 
                   // Schedule the notification
                   await ref
-                      .read(notificationNotifierProvider.notifier)
+                      .read(notificationProvider.notifier)
                       .scheduleNotification(
                         NotificationModel(
                           itemId: widget.item.id,
