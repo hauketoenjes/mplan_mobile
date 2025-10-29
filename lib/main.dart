@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:mplan_mobile/gen/assets.gen.dart';
+import 'package:mplan_mobile/l10n/app_localizations.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/pages/foreword_page.dart';
 import 'package:mplan_mobile/pages/personal_plan_page.dart';
@@ -66,7 +67,8 @@ Future<void> main() async {
   // Request notification permissions on Android
   await flutterLocalNotificationsPlugin
       .resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin>()
+        AndroidFlutterLocalNotificationsPlugin
+      >()
       ?.requestNotificationsPermission();
 
   // Timezone. Initialize with Europe/Berlin as local timezone
@@ -79,8 +81,9 @@ Future<void> main() async {
       overrides: [
         sharedPreferencesProvider.overrideWithValue(sharedPreferences),
         packageInfoProvider.overrideWithValue(packageInfo),
-        localNotificationsPluginProvider
-            .overrideWithValue(flutterLocalNotificationsPlugin),
+        localNotificationsPluginProvider.overrideWithValue(
+          flutterLocalNotificationsPlugin,
+        ),
       ],
       child: const MyApp(),
     ),
@@ -113,7 +116,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
       // Invalidate the providers to refetch the data
       // when the app is resumed
       ref
-        ..invalidate(notificationNotifierProvider)
+        ..invalidate(notificationProvider)
         ..invalidate(fetchPlanProvider)
         ..invalidate(fetchForewordProvider)
         ..invalidate(getTimeOfDayProvider);
@@ -132,28 +135,28 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
           icon: const Icon(Icons.calendar_month_outlined),
           label: context.l10n.planPage_title,
         ),
-        widget: const PlanPage()
+        widget: const PlanPage(),
       ),
       (
         destination: NavigationDestination(
           icon: const Icon(Icons.person_outline_outlined),
           label: context.l10n.perosnalPlanPage_title,
         ),
-        widget: const PersonalPlanPage()
+        widget: const PersonalPlanPage(),
       ),
       (
         destination: NavigationDestination(
           icon: const Icon(Icons.description_outlined),
           label: context.l10n.forewordPage_title,
         ),
-        widget: const ForewordPage()
+        widget: const ForewordPage(),
       ),
       (
         destination: NavigationDestination(
           icon: const Icon(Icons.settings_outlined),
           label: context.l10n.settingsPage_title,
         ),
-        widget: const SettingsPage()
+        widget: const SettingsPage(),
       ),
     ];
   }

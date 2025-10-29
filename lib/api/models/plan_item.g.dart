@@ -6,25 +6,23 @@ part of 'plan_item.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PlanItemImpl _$$PlanItemImplFromJson(Map<String, dynamic> json) =>
-    _$PlanItemImpl(
-      id: json['id'] as String,
-      date: DateTime.parse(json['date'] as String),
-      location: json['location'] as String?,
-      extra: json['extra'] as String?,
-      canceled: json['canceled'] as bool?,
-      acolytes: (json['acolytes'] as Map<String, dynamic>?)?.map(
-        (k, e) =>
-            MapEntry(k, (e as List<dynamic>).map((e) => e as String).toList()),
-      ),
-    );
+_PlanItem _$PlanItemFromJson(Map<String, dynamic> json) => _PlanItem(
+  id: json['id'] as String,
+  date: DateTime.parse(json['date'] as String),
+  location: json['location'] as String?,
+  extra: json['extra'] as String?,
+  canceled: json['canceled'] as bool?,
+  acolytes: (json['acolytes'] as Map<String, dynamic>?)?.map(
+    (k, e) =>
+        MapEntry(k, (e as List<dynamic>).map((e) => e as String).toList()),
+  ),
+);
 
-Map<String, dynamic> _$$PlanItemImplToJson(_$PlanItemImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'date': instance.date.toIso8601String(),
-      'location': instance.location,
-      'extra': instance.extra,
-      'canceled': instance.canceled,
-      'acolytes': instance.acolytes,
-    };
+Map<String, dynamic> _$PlanItemToJson(_PlanItem instance) => <String, dynamic>{
+  'id': instance.id,
+  'date': instance.date.toIso8601String(),
+  'location': instance.location,
+  'extra': instance.extra,
+  'canceled': instance.canceled,
+  'acolytes': instance.acolytes,
+};

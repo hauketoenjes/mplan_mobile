@@ -6,23 +6,64 @@ part of 'notification_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$notificationNotifierHash() =>
-    r'7d1910742b1c8b8c21dab30cf2b7983b231468f2';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [NotificationNotifier].
 @ProviderFor(NotificationNotifier)
-final notificationNotifierProvider = AutoDisposeAsyncNotifierProvider<
-    NotificationNotifier, List<PendingNotificationRequest>>.internal(
-  NotificationNotifier.new,
-  name: r'notificationNotifierProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$notificationNotifierHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const notificationProvider = NotificationNotifierProvider._();
 
-typedef _$NotificationNotifier
-    = AutoDisposeAsyncNotifier<List<PendingNotificationRequest>>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class NotificationNotifierProvider
+    extends
+        $AsyncNotifierProvider<
+          NotificationNotifier,
+          List<PendingNotificationRequest>
+        > {
+  const NotificationNotifierProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'notificationProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$notificationNotifierHash();
+
+  @$internal
+  @override
+  NotificationNotifier create() => NotificationNotifier();
+}
+
+String _$notificationNotifierHash() =>
+    r'0ef97976bad4da0ebc6d88d02905468775e24bac';
+
+abstract class _$NotificationNotifier
+    extends $AsyncNotifier<List<PendingNotificationRequest>> {
+  FutureOr<List<PendingNotificationRequest>> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref =
+        this.ref
+            as $Ref<
+              AsyncValue<List<PendingNotificationRequest>>,
+              List<PendingNotificationRequest>
+            >;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<
+                AsyncValue<List<PendingNotificationRequest>>,
+                List<PendingNotificationRequest>
+              >,
+              AsyncValue<List<PendingNotificationRequest>>,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}

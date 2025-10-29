@@ -13,16 +13,18 @@ const _notificationChannelMassesName = 'mass_notification';
 class NotificationNotifier extends _$NotificationNotifier {
   @override
   Future<List<PendingNotificationRequest>> build() {
-    final localNotificationProvider =
-        ref.watch(localNotificationsPluginProvider);
+    final localNotificationProvider = ref.watch(
+      localNotificationsPluginProvider,
+    );
 
     return localNotificationProvider.pendingNotificationRequests();
   }
 
   /// Cancel the notification with the given [id].
   Future<void> cancel(String id) async {
-    final localNotificationProvider =
-        ref.watch(localNotificationsPluginProvider);
+    final localNotificationProvider = ref.watch(
+      localNotificationsPluginProvider,
+    );
 
     await localNotificationProvider.cancel(stringToNotificationId(id));
 
@@ -32,8 +34,9 @@ class NotificationNotifier extends _$NotificationNotifier {
 
   /// Cancels all notifications.
   Future<void> cancelAll() async {
-    final localNotificationProvider =
-        ref.watch(localNotificationsPluginProvider);
+    final localNotificationProvider = ref.watch(
+      localNotificationsPluginProvider,
+    );
 
     await localNotificationProvider.cancelAll();
 
@@ -42,8 +45,9 @@ class NotificationNotifier extends _$NotificationNotifier {
   }
 
   Future<void> scheduleNotification(NotificationModel notification) async {
-    final localNotificationProvider =
-        ref.watch(localNotificationsPluginProvider);
+    final localNotificationProvider = ref.watch(
+      localNotificationsPluginProvider,
+    );
 
     // Configure the notification details
     final darwinNotificationDetails = DarwinNotificationDetails(

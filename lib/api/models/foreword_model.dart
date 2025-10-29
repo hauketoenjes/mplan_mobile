@@ -4,7 +4,7 @@ part 'foreword_model.freezed.dart';
 part 'foreword_model.g.dart';
 
 @freezed
-class ForewordModel with _$ForewordModel {
+abstract class ForewordModel with _$ForewordModel {
   const factory ForewordModel({
     required String content,
     @JsonKey(name: 'updated_on') required DateTime updatedOn,
