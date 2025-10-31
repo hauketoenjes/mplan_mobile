@@ -71,8 +71,6 @@ class NotificationNotifier extends _$NotificationNotifier {
       notification.notificationBody,
       notification.date.toLocalTz().subtract(notification.notifyBefore),
       notificationDetails,
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
       androidScheduleMode: AndroidScheduleMode.inexact,
     );
 

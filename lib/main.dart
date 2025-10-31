@@ -57,7 +57,7 @@ Future<void> main() async {
   // Notifications
   final flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
   const initializationSettings = InitializationSettings(
-    android: AndroidInitializationSettings('app_icon'),
+    android: AndroidInitializationSettings('@drawable/app_icon'),
     iOS: DarwinInitializationSettings(),
   );
   await flutterLocalNotificationsPlugin.initialize(
