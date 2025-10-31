@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.13.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.12.0...v1.13.0) (2025-10-31)
+
+
+### Features
+
+* enable multidex support and update flutter_local_notifications dependency ([#63](https://github.com/hauketoenjes/mplan_mobile/issues/63)) ([1bfc5c0](https://github.com/hauketoenjes/mplan_mobile/commit/1bfc5c033a62b8591e76dda07897f58e51bcd79e))
+
 ## [1.12.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.11.1...v1.12.0) (2025-10-29)
 
 
