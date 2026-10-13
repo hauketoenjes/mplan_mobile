@@ -155,4 +155,24 @@ class AppLocalizationsDe extends AppLocalizations {
   String reminder_notificationBody(String date, String time) {
     return 'Du musst am $date um $time Messe dienen.';
   }
+
+  @override
+  String get migration_title => 'Der Messdienerplan zieht um';
+
+  @override
+  String get migration_softBody =>
+      'Den Plan gibt es jetzt in der neuen App Turnus. Installiere Turnus und suche dort nach „St. Vitus Visbek“, um deinen Plan wie gewohnt zu sehen. Diese App wird bald nicht mehr aktualisiert.';
+
+  @override
+  String get migration_hardBody =>
+      'Diese App wird nicht mehr aktualisiert. Den aktuellen Plan findest du in der neuen App Turnus – suche dort nach „St. Vitus Visbek“.';
+
+  @override
+  String get migration_banner => 'Der Plan zieht in die App Turnus um';
+
+  @override
+  String get migration_install => 'Turnus installieren';
+
+  @override
+  String get migration_later => 'Später';
 }

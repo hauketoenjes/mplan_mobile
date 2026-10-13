@@ -81,5 +81,11 @@
         "type": "String"
       }
     }
-  }
+  },
+  "migration_title": "Der Messdienerplan zieht um",
+  "migration_softBody": "Den Plan gibt es jetzt in der neuen App Turnus. Installiere Turnus und suche dort nach „St. Vitus Visbek“, um deinen Plan wie gewohnt zu sehen. Diese App wird bald nicht mehr aktualisiert.",
+  "migration_hardBody": "Diese App wird nicht mehr aktualisiert. Den aktuellen Plan findest du in der neuen App Turnus – suche dort nach „St. Vitus Visbek“.",
+  "migration_banner": "Der Plan zieht in die App Turnus um",
+  "migration_install": "Turnus installieren",
+  "migration_later": "Später"
 }

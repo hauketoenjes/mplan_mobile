@@ -106,8 +106,12 @@ class $AssetsImagesGen {
   AssetGenImage get msvvLogo =>
       const AssetGenImage('assets/images/msvv_logo.png');
 
+  /// File path: assets/images/turnus_logo.png
+  AssetGenImage get turnusLogo =>
+      const AssetGenImage('assets/images/turnus_logo.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [msvvLogo];
+  List<AssetGenImage> get values => [msvvLogo, turnusLogo];
 }
 
 class Assets {
