@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/providers/migration_notifier/migration_notifier.dart';
 import 'package:mplan_mobile/widgets/migration/install_turnus_button.dart';
+import 'package:mplan_mobile/widgets/migration/turnus_logo.dart';
 import 'package:mplan_mobile/widgets/utils/app_icon.dart';
 
 class MigrationPage extends ConsumerWidget {
@@ -23,7 +24,17 @@ class MigrationPage extends ConsumerWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const AppIcon(),
+                  const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      AppIcon(),
+                      Icon(Icons.arrow_forward),
+                      Padding(
+                        padding: EdgeInsets.all(8),
+                        child: TurnusLogo(),
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 24),
                   Text(
                     context.l10n.migration_title,

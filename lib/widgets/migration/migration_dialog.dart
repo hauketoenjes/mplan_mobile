@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
 import 'package:mplan_mobile/providers/migration_notifier/migration_notifier.dart';
 import 'package:mplan_mobile/widgets/migration/install_turnus_button.dart';
+import 'package:mplan_mobile/widgets/migration/turnus_logo.dart';
 
 Future<void> showMigrationDialog(BuildContext context) => showDialog<void>(
   context: context,
@@ -17,7 +18,7 @@ class MigrationDialog extends ConsumerWidget {
     final message = ref.watch(migrationProvider.select((n) => n.message));
 
     return AlertDialog(
-      icon: const Icon(Icons.campaign_outlined),
+      icon: const TurnusLogo(size: 56),
       title: Text(context.l10n.migration_title),
       content: Text(message ?? context.l10n.migration_softBody),
       actions: [
