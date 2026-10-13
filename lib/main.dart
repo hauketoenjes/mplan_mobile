@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:mplan_mobile/api/models/migration_notice.dart';
 import 'package:mplan_mobile/gen/assets.gen.dart';
 import 'package:mplan_mobile/l10n/app_localizations.dart';
 import 'package:mplan_mobile/l10n/l10n.dart';
@@ -16,11 +17,14 @@ import 'package:mplan_mobile/pages/personal_plan_page.dart';
 import 'package:mplan_mobile/pages/plan_page.dart';
 import 'package:mplan_mobile/pages/settings_page.dart';
 import 'package:mplan_mobile/providers/foreword_provider/foreword_provider.dart';
+import 'package:mplan_mobile/providers/migration_notifier/migration_notifier.dart';
 import 'package:mplan_mobile/providers/misc_provider/misc_provider.dart';
 import 'package:mplan_mobile/providers/notification_notifier/notification_notifier.dart';
 import 'package:mplan_mobile/providers/plan_provider/plan_provider.dart';
 import 'package:mplan_mobile/providers/timeofday_provider/timeofday_provider.dart';
 import 'package:mplan_mobile/theme.dart';
+import 'package:mplan_mobile/widgets/migration/migration_banner.dart';
+import 'package:mplan_mobile/widgets/migration/migration_gate.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -119,6 +123,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
         ..invalidate(notificationProvider)
         ..invalidate(fetchPlanProvider)
         ..invalidate(fetchForewordProvider)
+        ..invalidate(migrationProvider)
         ..invalidate(getTimeOfDayProvider);
     }
     super.didChangeAppLifecycleState(state);
@@ -181,30 +186,43 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
         Locale('de'),
       ],
       locale: const Locale('de'),
-      home: Builder(
-        builder: (context) {
-          final destinations = getDestinations(context);
-          final currentDestination = destinations[_selectedDestination].widget;
+      home: MigrationGate(
+        child: Builder(
+          builder: (context) {
+            final destinations = getDestinations(context);
+            final currentDestination =
+                destinations[_selectedDestination].widget;
+            final showBanner =
+                ref.watch(migrationProvider.select((n) => n.stage)) ==
+                MigrationStage.soft;
 
-          return Scaffold(
-            bottomNavigationBar: NavigationBar(
-              onDestinationSelected: (index) {
-                setState(() {
-                  _selectedDestination = index;
-                });
-                HapticFeedback.selectionClick();
-              },
-              selectedIndex: _selectedDestination,
-              destinations: destinations.map((e) => e.destination).toList(),
-            ),
-            body: SafeArea(
-              child: AnimatedSwitcher(
-                duration: const Duration(milliseconds: 300),
-                child: currentDestination,
+            return Scaffold(
+              bottomNavigationBar: NavigationBar(
+                onDestinationSelected: (index) {
+                  setState(() {
+                    _selectedDestination = index;
+                  });
+                  HapticFeedback.selectionClick();
+                },
+                selectedIndex: _selectedDestination,
+                destinations: destinations.map((e) => e.destination).toList(),
               ),
-            ),
-          );
-        },
+              body: SafeArea(
+                child: Column(
+                  children: [
+                    if (showBanner) const MigrationBanner(),
+                    Expanded(
+                      child: AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 300),
+                        child: currentDestination,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

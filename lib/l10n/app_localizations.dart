@@ -319,6 +319,42 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'Du musst am {date} um {time} Messe dienen.'**
   String reminder_notificationBody(String date, String time);
+
+  /// No description provided for @migration_title.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Messdienerplan zieht um'**
+  String get migration_title;
+
+  /// No description provided for @migration_softBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Den Plan gibt es jetzt in der neuen App Turnus. Installiere Turnus und suche dort nach „St. Vitus Visbek“, um deinen Plan wie gewohnt zu sehen. Diese App wird bald nicht mehr aktualisiert.'**
+  String get migration_softBody;
+
+  /// No description provided for @migration_hardBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese App wird nicht mehr aktualisiert. Den aktuellen Plan findest du in der neuen App Turnus – suche dort nach „St. Vitus Visbek“.'**
+  String get migration_hardBody;
+
+  /// No description provided for @migration_banner.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Plan zieht in die App Turnus um'**
+  String get migration_banner;
+
+  /// No description provided for @migration_install.
+  ///
+  /// In de, this message translates to:
+  /// **'Turnus installieren'**
+  String get migration_install;
+
+  /// No description provided for @migration_later.
+  ///
+  /// In de, this message translates to:
+  /// **'Später'**
+  String get migration_later;
 }
 
 class _AppLocalizationsDelegate

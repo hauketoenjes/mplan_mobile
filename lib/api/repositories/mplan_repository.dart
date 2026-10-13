@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:http_cache_hive_store/http_cache_hive_store.dart';
 import 'package:mplan_mobile/api/models/foreword_model.dart';
+import 'package:mplan_mobile/api/models/migration_notice.dart';
 import 'package:mplan_mobile/api/models/plan_item.dart';
 import 'package:mplan_mobile/app_configuration.dart';
 
@@ -27,7 +28,8 @@ class MplanRepository {
           : null,
     );
 
-    final plan = response.data
+    final plan =
+        response.data
             ?.map((e) => e as Map<String, dynamic>)
             .map(PlanItem.fromJson)
             .toList() ??
@@ -48,5 +50,19 @@ class MplanRepository {
     return ForewordModel.fromJson(
       response.data!['data'] as Map<String, dynamic>,
     );
+  }
+
+  /// Get the migration settings from the API. Bypasses the HTTP cache: the
+  /// caller keeps its own copy for when the request fails.
+  Future<MigrationNotice> getMigrationNotice() async {
+    final response = await _dio.get<Map<String, dynamic>>(
+      migrationFetchUrl.toString(),
+      options: _cacheOptions.copyWith(policy: CachePolicy.noCache).toOptions(),
+    );
+
+    final data = response.data?['data'];
+    return data is Map<String, dynamic>
+        ? MigrationNotice.fromJson(data)
+        : const MigrationNotice(stage: MigrationStage.off);
   }
 }
