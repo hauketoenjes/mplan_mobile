@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.13.0...v1.14.0) (2026-10-13)
+
+
+### Features
+
+* point users to Turnus, switched on from the CMS ([875feff](https://github.com/hauketoenjes/mplan_mobile/commit/875feff517422eb0f964d66244b898f023352d10))
+
 ## [1.13.0](https://github.com/hauketoenjes/mplan_mobile/compare/v1.12.0...v1.13.0) (2025-10-31)
 
 
